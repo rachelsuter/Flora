@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<title>Flora</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="../images/flower-icons/carnation-icon.png"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1 {font-family: "Raleway", Arial, sans-serif}
+h1 {letter-spacing: 6px}
+.w3-row-padding img {margin-bottom: 12px}
+</style>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../styles/styles.css"/>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../scripts/app.js"></script>
+    <script type="text/javascript" src="../scripts/loadHeader.js"></script>
+    <script type="text/javascript" src="../scripts/addtocartTEST.js"></script>
+    
+    <script>
+        
+        $(document).ready(function() {
+          var products = [{
+            
+            "itemNum": 1,
+            "name": "Suncrisp Bouquet",
+            "image": "../images/bouquets/suncrisp.png",
+            "meaning": "This bouquet is perfect for Mother's Day. The flowers within it show love and adoraction.",
+            "price": 34
+        },
+        {
+            "itemNum": 2,
+            "name": "Passion Bouquet",
+            "image": "../images/bouquets/passion.png",
+            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
+            "price": 34
+        },
+        {
+            "itemNum": 2,
+            "name": "Passion Bouquet",
+            "image": "../images/bouquets/passion.png",
+            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
+            "price": 34
+        },
+        {
+            "itemNum": 2,
+            "name": "Passion Bouquet",
+            "image": "../images/bouquets/passion.png",
+            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
+            "price": 34
+        },
+        {
+            "itemNum": 2,
+            "name": "Passion Bouquet",
+            "image": "../images/bouquets/passion.png",
+            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
+            "price": 34
+        }
+          ];
+    
+          var j = 0;
+          var content = "";
+          for (var i in products) {
+            if (i % 4 === 0) {
+              $("#products").append("<tr id='row" + i + "'></tr>");
+              j = i;
+            }
+            $("#row" + j).append("<td><div class='shop-item' onclick='addToCart("+products[i].itemNum+");'><img src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + " </br><div>" + products[i].price + "</div></div></td>");
+          }
+        });
+      </script>
+</head>
+
+<body>
+<!-- !PAGE CONTENT! -->
+<div class="w3-content" style="max-width:1500px">
+
+<!-- Header -->
+<header class="w3-panel w3-center w3-opacity">
+
+    <div>
+        <h1 class="logo" ALIGN=CENTER>Flora</h1>
+        <div class="w3-bar">
+    
+        <a href="index.html" class="w3-bar-item w3-button">Home</a>
+        <a href="shop.html" class="w3-bar-item w3-button  w3-light-grey">Shop</a>
+        <a href="build-your-bouquet.html" class="w3-bar-item w3-button">Build Your Bouquet</a>
+        <a href="quiz.html" class="w3-bar-item w3-button w3-hide-small">Find Your Flowers Quiz</a>
+        </div>
+        <a href="cart.html">
+            <img class="cart-icon" src="../images/cart.png"/>
+        </a>
+    </div>
+</header>
+
+<div class="table-parent center center-table">
+<div class="inner center-table">
+    <table class="table">
+        <tbody id="products"></tbody>
+    </table>
+</div>
+</div>
+
+<h1>Responsive Image Grid Example</h1>
+<div class="outer-grid" style="text-align: center">
+    <div class="inner-grid">
+        <img src="../images/bouquets/passion.png"/>
+        <img src="../images/bouquets/passion.png"/>
+        <img src="../images/bouquets/passion.png"/>
+    </div>
+    <div class="inner-grid">
+        <img src="https://images.pexels.com/photos/3805102/pexels-photo-3805102.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+        <img src="https://images.pexels.com/photos/3805102/pexels-photo-3805102.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+        <img src="https://images.pexels.com/photos/3805102/pexels-photo-3805102.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+    </div>
+    <div class="inner-grid">
+        <img src="https://images.pexels.com/photos/3863778/pexels-photo-3863778.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+        <img src="https://images.pexels.com/photos/3863778/pexels-photo-3863778.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+        <img src="https://images.pexels.com/photos/3863778/pexels-photo-3863778.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+    </div>
+</div>
+
+<!-- End Page Content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large"> 
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <p>Follow us on social media</p>
+</footer>
+
+</body>
+</html>

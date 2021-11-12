@@ -12,12 +12,14 @@ body,h1 {font-family: "Raleway", Arial, sans-serif}
 h1 {letter-spacing: 6px}
 .w3-row-padding img {margin-bottom: 12px}
 </style>
+<script>console.log(Cookies.get('name'));</script>
 
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../styles/styles.css"/>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    
     <script type="text/javascript" src="../scripts/setCookies.js"></script>
     <script type="text/javascript" src="../scripts/app.js"></script>
     <script type="text/javascript" src="../scripts/loadHeader.js"></script>
@@ -25,8 +27,6 @@ h1 {letter-spacing: 6px}
 </head>
 
 <body>
-
-
 <!-- !PAGE CONTENT! -->
 <div class="w3-content" style="max-width:1500px">
 
@@ -42,18 +42,11 @@ h1 {letter-spacing: 6px}
         <a href="build-your-bouquet.html" class="w3-bar-item w3-button">Build Your Bouquet</a>
         <a href="quiz.html" class="w3-bar-item w3-button w3-hide-small">Find Your Flowers Quiz</a>
         </div>
-        <a href="cart.html">
-            <img class="cart-icon" src="../images/cart.png"/>
-        </a>
+        <img class="cart-icon" src="../images/cart.png"/>
     </div>
 </header>
 
-<div>
-    <input type="text" method="put" id="search" placeholder="Search" value="">
-    <input type='submit' onclick="sendToPage();" />
-</div>
 
-  
 <!-- End Page Content -->
 </div>
 
@@ -68,8 +61,5 @@ h1 {letter-spacing: 6px}
   <p>Follow us on social media</p>
 </footer>
 
-<script>
-    //console.log(Cookies.get('name'));
-</script>
 </body>
 </html>

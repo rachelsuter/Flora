@@ -14,18 +14,13 @@ h1 {letter-spacing: 6px}
 </style>
 
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
-
     <link rel="stylesheet" type="text/css" href="../styles/styles.css"/>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script type="text/javascript" src="../scripts/setCookies.js"></script>
     <script type="text/javascript" src="../scripts/app.js"></script>
-    <script type="text/javascript" src="../scripts/loadHeader.js"></script>
     
 </head>
 
 <body>
-
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-content" style="max-width:1500px">
@@ -42,17 +37,28 @@ h1 {letter-spacing: 6px}
         <a href="build-your-bouquet.html" class="w3-bar-item w3-button">Build Your Bouquet</a>
         <a href="quiz.html" class="w3-bar-item w3-button w3-hide-small">Find Your Flowers Quiz</a>
         </div>
-        <a href="cart.html">
-            <img class="cart-icon" src="../images/cart.png"/>
-        </a>
+        <img class="cart-icon" src="../images/cart.png"/>
     </div>
 </header>
 
-<div>
-    <input type="text" method="put" id="search" placeholder="Search" value="">
-    <input type='submit' onclick="sendToPage();" />
-</div>
 
+<!-- Build Your Bouquet -->
+<div class="w3-row-padding" style="margin-bottom:128px">
+    <div>
+      <!-- Flower option buttons-->
+      <div>
+          <button class="flower-option-test">test</button>
+      </div>
+     
+      <!-- Vase and flowers iamges -->
+      <div class="byb-img-parent center resize">
+          <img id="byb-flower-3" class="image2 resize" />
+          <img id="byb-flower-1" class="image2 resize" src="../images/rose-orange-1.png" />
+          <img id="byb-flower-2" class="image2 resize" src="../images/carnation-pink-2.png" />
+          <img id="byb-vase" class="image1 resize" src="../images/vase.png" />
+        </div>
+    </div>
+  </div>
   
 <!-- End Page Content -->
 </div>
@@ -68,8 +74,5 @@ h1 {letter-spacing: 6px}
   <p>Follow us on social media</p>
 </footer>
 
-<script>
-    //console.log(Cookies.get('name'));
-</script>
 </body>
 </html>
