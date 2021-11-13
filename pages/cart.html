@@ -12,15 +12,11 @@ body,h1 {font-family: "Raleway", Arial, sans-serif}
 h1 {letter-spacing: 6px}
 .w3-row-padding img {margin-bottom: 12px}
 </style>
-<script>console.log(Cookies.get('name'));</script>
 
 <head>
-    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-
     <link rel="stylesheet" type="text/css" href="../styles/styles.css"/>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     
-    <script type="text/javascript" src="../scripts/setCookies.js"></script>
     <script type="text/javascript" src="../scripts/app.js"></script>
     <script type="text/javascript" src="../scripts/loadHeader.js"></script>
     
@@ -46,6 +42,118 @@ h1 {letter-spacing: 6px}
     </div>
 </header>
 
+<script>
+    $(document).ready(function() {
+        var products = [{  
+            "itemNum": 1,
+            "name": "Suncrisp Bouquet",
+            "image": "../images/bouquets/suncrisp.png",
+            "meaning": "This bouquet is perfect for Mother's Day. The flowers within it show love and adoraction.",
+            "price": 34
+        },
+        {
+            "itemNum": 2,
+            "name": "Passion Bouquet",
+            "image": "../images/bouquets/passion.png",
+            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
+            "price": 34
+        },
+        {
+            "itemNum": 2,
+            "name": "Passion Bouquet",
+            "image": "../images/bouquets/passion.png",
+            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
+            "price": 34
+        },
+        {
+            "itemNum": 2,
+            "name": "Passion Bouquet",
+            "image": "../images/bouquets/passion.png",
+            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
+            "price": 34
+        },
+        {
+            "itemNum": 2,
+            "name": "Passion Bouquet",
+            "image": "../images/bouquets/passion.png",
+            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
+            "price": 34
+        }
+          ];
+        var i = 1;
+        var j = 0;
+
+        /* Initialize quantity array to 0; assume 10 products for now */
+        var k = 0;
+        const bouquetQty = [];
+        while (k < 10) {
+            bouquetQty[k] = 0;
+            k++;
+        }
+
+        defaultBouquetCtr = parseInt(sessionStorage.getItem("defaultBouquetCtr"));
+        while(i<=defaultBouquetCtr) {
+            var img;
+            var name;
+            var message;
+            var price;
+
+            itemNum = parseInt(sessionStorage.getItem("defaultBouquet"+i));
+
+            if (bouquetQty[itemNum] == 0){
+                bouquetQty[itemNum] = 1;
+                $("#products").append("<tr id='row" + itemNum + "'></tr>");
+
+                var defaultBouquetNumber = parseInt(sessionStorage.getItem("defaultBouquet"+i));
+                for (var j in products) {
+                    if (products[j].itemNum == defaultBouquetNumber) {
+                        img = products[j].image;
+                        name = products[j].name;
+                        price = products[j].price;
+                    }
+                }
+
+                $("#row" + itemNum).append("<td><img src="+img+"/><br>"+name+"</td>");
+                $("#row" + itemNum).append("<td>$"+price+"</td>");
+                $("#row" + itemNum).append("<td id='row"+itemNum+"qty'>"+bouquetQty[itemNum]+"</td>");
+                $("#row" + itemNum).append("<td>hi</td>");
+            } else {    
+                bouquetQty[itemNum]++;
+                console.log(bouquetQty);
+                
+                $("#row" + itemNum + "qty").html(bouquetQty[itemNum]);   
+                console.log("in here");
+
+            }
+            i++;
+        }
+        /*var j = 0;
+          var content = "";
+          for (var i in products) {
+            if (i % 4 === 0) {
+              $("#products").append("<tr id='row" + i + "'></tr>");
+              j = i;
+            }
+            $("#row" + j).append("<td><div class='shop-item' onclick='addToCart("+products[i].itemNum+");'><img src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + " </br><div>" + products[i].price + "</div></div></td>");
+          } */
+        });
+</script>
+
+<!-- Table -->
+<div class="table-parent center center-table">
+    <div class="inner center-table">
+        <table class="table">
+            <tbody id="products">
+                <tr>
+                    <td>PRODUCT</td>
+                    <td>PRICE</td>
+                    <td>QTY</td>
+                    <td>TOTAl</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>      
+</div>
 
 <!-- End Page Content -->
 </div>

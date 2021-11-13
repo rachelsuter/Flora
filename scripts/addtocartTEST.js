@@ -1,9 +1,13 @@
 function addToCart(itemNum) {
     //alert("Clicked! " + itemNum + document.cookie);
 
-    var ctr = (document.cookie = "cartCtr")+1;
-    var Item = "Item"+ctr;
+    defaultBouquetCtr = parseInt(sessionStorage.getItem("defaultBouquetCtr")) + 1;
+    sessionStorage.setItem("defaultBouquetCtr", defaultBouquetCtr);
 
-    document.cookie = Item + "=" +itemNum;
-    console.log(document.cookie);
-  }
+    cartItemNum = "defaultBouquet" + defaultBouquetCtr;
+
+    sessionStorage.setItem(cartItemNum, itemNum);
+
+    location.href = "shop.html";
+
+}

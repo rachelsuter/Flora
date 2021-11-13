@@ -97,11 +97,11 @@ h1 {letter-spacing: 6px}
 </header>
 
 <div class="table-parent center center-table">
-<div class="inner center-table">
-    <table class="table">
-        <tbody id="products"></tbody>
-    </table>
-</div>
+    <div class="inner center-table">
+        <table class="table">
+            <tbody id="products"></tbody>
+        </table>
+    </div>      
 </div>
 
 <h1>Responsive Image Grid Example</h1>
@@ -136,6 +136,13 @@ h1 {letter-spacing: 6px}
   <i class="fa fa-linkedin w3-hover-opacity"></i>
   <p>Follow us on social media</p>
 </footer>
+
+<script>
+    //console.log(Cookies.get('name'));
+    console.log("defaultBouquet1:" + sessionStorage.getItem("defaultBouquet"+1));
+    console.log("defaultBouquet2:" + sessionStorage.getItem("defaultBouquet"+2));
+    console.log("cartCtr:" + sessionStorage.getItem("defaultBouquetCtr"));
+</script>
 
 </body>
 </html>
