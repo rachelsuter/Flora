@@ -91,19 +91,25 @@ h1 {letter-spacing: 6px}
             k++;
         }
 
+        //How many default bouquets (from shop page) are in cart
         defaultBouquetCtr = parseInt(sessionStorage.getItem("defaultBouquetCtr"));
+
+        //go through all default bouqets in cart
         while(i<=defaultBouquetCtr) {
             var img;
             var name;
             var message;
             var price;
 
+            //itemNum or id of bouquet added to cart
             itemNum = parseInt(sessionStorage.getItem("defaultBouquet"+i));
 
+            //if not added to cart yet, add bouquet item w quantity of 1
             if (bouquetQty[itemNum] == 0){
                 bouquetQty[itemNum] = 1;
                 $("#products").append("<tr id='row" + itemNum + "'></tr>");
 
+                //get info for cart table for correct bouquet
                 var defaultBouquetNumber = parseInt(sessionStorage.getItem("defaultBouquet"+i));
                 for (var j in products) {
                     if (products[j].itemNum == defaultBouquetNumber) {
@@ -113,29 +119,26 @@ h1 {letter-spacing: 6px}
                     }
                 }
 
+                //add info to cart table
                 $("#row" + itemNum).append("<td><img src="+img+"/><br>"+name+"</td>");
                 $("#row" + itemNum).append("<td>$"+price+"</td>");
                 $("#row" + itemNum).append("<td id='row"+itemNum+"qty'>"+bouquetQty[itemNum]+"</td>");
-                $("#row" + itemNum).append("<td>hi</td>");
-            } else {    
+                $("#row" + itemNum).append("<td id='row"+itemNum+"price'>"+price+"</td>");
+            } else { //if bouqet item is already in cart
+
+                /* might want to make item#qty a session variable for when users can add and remove items */
+
                 bouquetQty[itemNum]++;
                 console.log(bouquetQty);
-                
-                $("#row" + itemNum + "qty").html(bouquetQty[itemNum]);   
-                console.log("in here");
 
+                // Change quantity & price when >1 of same item
+                $("#row" + itemNum + "qty").html(bouquetQty[itemNum]);   
+                $("#row" + itemNum + "price").html(price * bouquetQty[itemNum]);  
+
+                console.log("in here");
             }
             i++;
         }
-        /*var j = 0;
-          var content = "";
-          for (var i in products) {
-            if (i % 4 === 0) {
-              $("#products").append("<tr id='row" + i + "'></tr>");
-              j = i;
-            }
-            $("#row" + j).append("<td><div class='shop-item' onclick='addToCart("+products[i].itemNum+");'><img src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + " </br><div>" + products[i].price + "</div></div></td>");
-          } */
         });
 </script>
 
