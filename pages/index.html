@@ -34,13 +34,15 @@ h1 {letter-spacing: 6px}
 <header class="w3-panel w3-center w3-opacity">
 
     <div>
-        <h1 class="logo" ALIGN=CENTER>Flora</h1>
-        <div class="w3-bar">
+        <a href="index.html">
+            <h1 class="logo" ALIGN=CENTER>Flora</h1>
+        </a>
+        <div class="w3-bar nav">
     
-        <a href="index.html" class="w3-bar-item w3-button w3-light-grey">Home</a>
-        <a href="shop.html" class="w3-bar-item w3-button">Shop</a>
-        <a href="build-your-bouquet.html" class="w3-bar-item w3-button">Build Your Bouquet</a>
-        <a href="quiz.html" class="w3-bar-item w3-button w3-hide-small">Find Your Flowers Quiz</a>
+            <a href="index.html" class="w3-bar-item w3-button w3-light-grey">Home</a>
+            <a href="shop.html" class="w3-bar-item w3-button">Shop</a>
+            <a href="build-your-bouquet.html" class="w3-bar-item w3-button">Build Your Bouquet</a>
+            <a href="quiz.html" class="w3-bar-item w3-button w3-hide-small">Find Your Flowers Quiz</a>
         </div>
         <a href="cart.html">
             <img class="cart-icon" src="../images/cart.png"/>
@@ -48,12 +50,27 @@ h1 {letter-spacing: 6px}
     </div>
 </header>
 
-<div>
-    <input type="text" method="put" id="search" placeholder="Search" value="">
+
+<!--  SEARCH BAR -->
+<!-- Load icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- The form -->
+<form class="example" action="shop.html">
+  <input type="text" placeholder="Search..." name="search">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+<!--
+<div class="center-search">
+    <input style="width:500px" type="text" method="put" id="search" placeholder="Search" value="">
     <input type='submit' onclick="sendToPage();" />
 </div>
+-->
 
   
+
+
 <!-- End Page Content -->
 </div>
 

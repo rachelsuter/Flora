@@ -15,14 +15,22 @@ h1 {letter-spacing: 6px}
 
 <head>
     <link rel="stylesheet" type="text/css" href="../styles/styles.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="../scripts/app.js"></script>
     <script type="text/javascript" src="../scripts/loadHeader.js"></script>
     <script type="text/javascript" src="../scripts/addtocartTEST.js"></script>
     
     <script>
-        
         $(document).ready(function() {
+          var url_string = window.location.href;
+          var url = new URL(url_string);
+          var c = (url.searchParams.get("search"));
+          var searchInput;
+          if (c != null) {
+              searchInput = c.toLowerCase();
+          }
+
           var products = [{
             
             "itemNum": 1,
@@ -39,22 +47,22 @@ h1 {letter-spacing: 6px}
             "price": 34
         },
         {
-            "itemNum": 2,
-            "name": "Passion Bouquet",
+            "itemNum": 3,
+            "name": "different",
             "image": "../images/bouquets/passion.png",
             "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
             "price": 34
         },
         {
-            "itemNum": 2,
-            "name": "Passion Bouquet",
+            "itemNum": 3,
+            "name": "different",
             "image": "../images/bouquets/passion.png",
             "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
             "price": 34
         },
         {
-            "itemNum": 2,
-            "name": "Passion Bouquet",
+            "itemNum": 3,
+            "name": "different",
             "image": "../images/bouquets/passion.png",
             "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
             "price": 34
@@ -68,8 +76,24 @@ h1 {letter-spacing: 6px}
               $("#products").append("<tr id='row" + i + "'></tr>");
               j = i;
             }
-            $("#row" + j).append("<td><div class='shop-item' onclick='addToCart("+products[i].itemNum+");'><img src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + " </br><div>" + products[i].price + "</div></div></td>");
+            // Get all bouquets (no search)
+            if (searchInput == null || searchInput.length == 0) {
+                $("#row" + j).append("<td><div class='shop-item' onclick='addToCart("+products[i].itemNum+");'><img src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + " </br><div>" + products[i].price + "</div></div></td>");
+            } else {
+                // Get bouquets based on search 
+                if ((products[i].meaning).toLowerCase().includes(searchInput)){
+                    $("#row" + j).append("<td><div class='shop-item' onclick='addToCart("+products[i].itemNum+");'><img src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + " </br><div>" + products[i].price + "</div></div></td>");
+                }
+            }
+        }
+
+          
+          if (searchInput == null || searchInput.length == 0) {
+              alert("null or empty")
+          } else {
+              alert(searchInput);
           }
+
         });
       </script>
 </head>
@@ -98,30 +122,28 @@ h1 {letter-spacing: 6px}
 
 <div class="table-parent center center-table">
     <div class="inner center-table">
-        <table class="table">
+        <table class="table table-center shop-table">
             <tbody id="products"></tbody>
         </table>
     </div>      
 </div>
 
-<h1>Responsive Image Grid Example</h1>
+<!--<h1>Responsive Image Grid Example</h1>
+<div class="outer-grid">
+    <table class="table">
+        <tbody id="products"></tbody>
+    </table>
+</div> -->
+
+<!--<h1>Responsive Image Grid Example</h1>
 <div class="outer-grid" style="text-align: center">
     <div class="inner-grid">
-        <img src="../images/bouquets/passion.png"/>
-        <img src="../images/bouquets/passion.png"/>
-        <img src="../images/bouquets/passion.png"/>
+        <table class="table">
+            <tbody id="products"></tbody>
+        </table>
     </div>
-    <div class="inner-grid">
-        <img src="https://images.pexels.com/photos/3805102/pexels-photo-3805102.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
-        <img src="https://images.pexels.com/photos/3805102/pexels-photo-3805102.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
-        <img src="https://images.pexels.com/photos/3805102/pexels-photo-3805102.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
-    </div>
-    <div class="inner-grid">
-        <img src="https://images.pexels.com/photos/3863778/pexels-photo-3863778.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
-        <img src="https://images.pexels.com/photos/3863778/pexels-photo-3863778.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
-        <img src="https://images.pexels.com/photos/3863778/pexels-photo-3863778.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
-    </div>
-</div>
+    
+</div> -->
 
 <!-- End Page Content -->
 </div>

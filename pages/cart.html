@@ -59,26 +59,13 @@ h1 {letter-spacing: 6px}
             "price": 34
         },
         {
-            "itemNum": 2,
-            "name": "Passion Bouquet",
-            "image": "../images/bouquets/passion.png",
-            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
-            "price": 34
-        },
-        {
-            "itemNum": 2,
-            "name": "Passion Bouquet",
-            "image": "../images/bouquets/passion.png",
-            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
-            "price": 34
-        },
-        {
-            "itemNum": 2,
-            "name": "Passion Bouquet",
+            "itemNum": 3,
+            "name": "different",
             "image": "../images/bouquets/passion.png",
             "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
             "price": 34
         }
+        
           ];
         var i = 1;
         var j = 0;
@@ -120,10 +107,10 @@ h1 {letter-spacing: 6px}
                 }
 
                 //add info to cart table
-                $("#row" + itemNum).append("<td><img src="+img+"/><br>"+name+"</td>");
-                $("#row" + itemNum).append("<td>$"+price+"</td>");
-                $("#row" + itemNum).append("<td id='row"+itemNum+"qty'>"+bouquetQty[itemNum]+"</td>");
-                $("#row" + itemNum).append("<td id='row"+itemNum+"price'>"+price+"</td>");
+                $("#row" + itemNum).append("<td class='center-text' style='width:25%'><img class='resize-cart-img' src="+img+"/><br>"+name+"<br><input type='checkbox'>Include meaning</td>");
+                $("#row" + itemNum).append("<td class='center-text' style='width:25%'>$"+price+"</td>");
+                $("#row" + itemNum).append("<td class='center-text qty-text' style='width:25%' id='row"+itemNum+"qty'>"+bouquetQty[itemNum]+"</td>");
+                $("#row" + itemNum).append("<td class='center-text' style='width:25%' id='row"+itemNum+"price'>$"+price+"</td>");
             } else { //if bouqet item is already in cart
 
                 /* might want to make item#qty a session variable for when users can add and remove items */
@@ -133,7 +120,7 @@ h1 {letter-spacing: 6px}
 
                 // Change quantity & price when >1 of same item
                 $("#row" + itemNum + "qty").html(bouquetQty[itemNum]);   
-                $("#row" + itemNum + "price").html(price * bouquetQty[itemNum]);  
+                $("#row" + itemNum + "price").html("$"+price * bouquetQty[itemNum]);  
 
                 console.log("in here");
             }
@@ -143,26 +130,38 @@ h1 {letter-spacing: 6px}
 </script>
 
 <!-- Table -->
-<div class="table-parent center center-table">
-    <div class="inner center-table">
-        <table class="table">
-            <tbody id="products">
-                <tr>
-                    <td>PRODUCT</td>
-                    <td>PRICE</td>
-                    <td>QTY</td>
-                    <td>TOTAl</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>      
-</div>
+<!--<div class="table-parent center center-table">
+    <div class="inner center-table"> -->
+    <div style="width: 100%;">
+        <div class="cart-table-parent" style="width: 70%; float: left; background: white;"> 
+            <table class="table table-center">
+                <tbody id="products">
+                    <tr class="center-text table-headings">
+                        <td>PRODUCT</td>
+                        <td>PRICE</td>
+                        <td>QTY</td>
+                        <td>TOTAL</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="margin-left: 70%; background: #3B552E; height:100%"> 
+            <div style="height: 100%;">
+              right
+            </div>
+            <div style="margin-top: 100%;">
+                right
+              </div>
+        </div>
+    </div>
+    <!--</div>      
+</div> -->
 
 <!-- End Page Content -->
 </div>
 
 <!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large"> 
+<footer class="footer w3-container w3-padding-64 w3-light-grey w3-center w3-large"> 
   <i class="fa fa-facebook-official w3-hover-opacity"></i>
   <i class="fa fa-instagram w3-hover-opacity"></i>
   <i class="fa fa-snapchat w3-hover-opacity"></i>
