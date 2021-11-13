@@ -8,6 +8,6 @@ function addToCart(itemNum) {
 
     sessionStorage.setItem(cartItemNum, itemNum);
 
-    location.href = "shop.html";
+    location.href = window.location.href;
 
 }
