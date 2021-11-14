@@ -1,0 +1,18 @@
+{
+    "flowers": [
+        {
+            "flowerId": 1,
+            "name": "rose-red",
+            "image": ["../images/bouquets/suncrisp.png", "../images/bouquets/suncrisp.png"],
+            "meaning": "This bouquet is perfect for Mother's Day. The flowers within it show love and adoraction.",
+            "price": 34
+        },
+        {
+            "itemNum": 2,
+            "name": "Passion Bouquet",
+            "image": "../images/bouquets/passion.png",
+            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
+            "price": 34
+        }
+    ]
+}

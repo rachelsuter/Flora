@@ -5,5 +5,4 @@ $(document).ready(function(){
         sessionStorage.setItem("defaultBouquetCtr", 0);
         console.log("setting defaultBouquetCtr...");
     }
-
 });

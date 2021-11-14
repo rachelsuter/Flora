@@ -15,64 +15,99 @@ h1 {letter-spacing: 6px}
 
 <head>
     <link rel="stylesheet" type="text/css" href="../styles/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/byb.css"/>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script type="text/javascript" src="../scripts/app.js"></script>
+    <script type="text/javascript" src="../scripts/setBybSessions.js"></script>
+    <script type="text/javascript" src="../scripts/byb.js"></script>
     
 </head>
-
 <body>
+<div class="w3-content" style="max-width:1500px;"></div>
+    <!-- Header -->
+    <header class="w3-panel w3-center w3-opacity">
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-content" style="max-width:1500px">
-
-<!-- Header -->
-<header class="w3-panel w3-center w3-opacity">
-
-    <div>
-        <h1 class="logo" ALIGN=CENTER>Flora</h1>
-        <div class="w3-bar">
-    
-        <a href="index.html" class="w3-bar-item w3-button w3-light-grey">Home</a>
-        <a href="shop.html" class="w3-bar-item w3-button">Shop</a>
-        <a href="build-your-bouquet.html" class="w3-bar-item w3-button">Build Your Bouquet</a>
-        <a href="quiz.html" class="w3-bar-item w3-button w3-hide-small">Find Your Flowers Quiz</a>
+        <div>
+            <a href="index.html">
+                <h1 class="logo" ALIGN=CENTER>Flora</h1>
+            </a>
+            <div class="w3-bar nav">
+        
+                <a href="index.html" class="w3-bar-item w3-button">Home</a>
+                <a href="shop.html" class="w3-bar-item w3-button">Shop</a>
+                <a href="build-your-bouquet.html" class="w3-bar-item w3-button w3-light-grey">Build Your Bouquet</a>
+                <a href="quiz.html" class="w3-bar-item w3-button w3-hide-small">Find Your Flowers Quiz</a>
+            </div>
+            <a href="cart.html">
+                <img class="cart-icon" src="../images/cart.png"/>
+            </a>
         </div>
-        <img class="cart-icon" src="../images/cart.png"/>
-    </div>
-</header>
+    </header>
 
+    <div id="content">
+        <div class="full-height">
+            <div class="col col1">
+                <h2>Column 1</h2>
+                <p>Hello World</p>
+                </div>
 
-<!-- Build Your Bouquet -->
-<div class="w3-row-padding" style="margin-bottom:128px">
-    <div>
-      <!-- Flower option buttons-->
-      <div>
-          <button class="flower-option-test">test</button>
-      </div>
-     
-      <!-- Vase and flowers iamges -->
-      <div class="byb-img-parent center resize">
-          <img id="byb-flower-3" class="image2 resize" />
-          <img id="byb-flower-1" class="image2 resize" src="../images/rose-orange-1.png" />
-          <img id="byb-flower-2" class="image2 resize" src="../images/carnation-pink-2.png" />
-          <img id="byb-vase" class="image1 resize" src="../images/vase.png" />
+                <div class="col col2">
+                    <div class="flower-option-btns-container">	
+                        <div class="dropdown">
+                            <button class="dropbtn">Roses</button>
+                            <div class="dropdown-content">
+                              <a href="#" id="rose-lavender">Lavender</a>
+                              <a href="#" id="rose-orange">Orange</a>
+                              <a href="#" id="rose-red">Red</a>
+                            </div>
+                          </div>	
+
+                          <div class="dropdown">
+                            <button class="dropbtn">Carnations</button>
+                            <div class="dropdown-content">
+                              <a href="#" id="carnation-pink">Pink</a>
+                              <a href="#" id="carnation-purple">Purple</a>
+                              <a href="#" id="carnation-white">White</a>
+                            </div>
+                          </div>	
+                        
+                          <div class="dropdown">
+                            <button class="dropbtn">Tulips</button>
+                            <div class="dropdown-content">
+                              <a href="#" id="tulip-peach">Peach</a>
+                              <a href="#" id="tulip-purple">Purple</a>
+                              <a href="#" id="tulip-yellow">Yellow</a>
+                            </div>
+                          </div>	
+                    </div>	
+                    	    
+
+                    <!-- Vase and flowers-->
+                    <div class="byb-img-parent center resize">
+                        <img id="byb-flower-3" class="image2 resize"/>
+                        <img id="byb-flower-1" class="image2 resize"/>
+                        <img id="byb-flower-2" class="image2 resize"/>
+                        <img id="byb-vase" class="image1 resize" src="../images/flowers/vase.png"/>
+                    </div>
+                </div>
+
+                <div class="col col3">
+                    <h2>Column 3</h2>
+                    <p>Some other text..</p>
+                    <p>Some other text..</p>
+                </div>
+            </div>
         </div>
     </div>
-  </div>
-  
-<!-- End Page Content -->
-</div>
 
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large"> 
-  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
-  <p>Follow us on social media</p>
-</footer>
-
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p>Follow us on social media</p>
+  </footer>
 </body>
 </html>

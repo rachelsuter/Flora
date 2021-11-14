@@ -94,6 +94,11 @@
     height: auto;
 }
 
+.resize-cart-custom {
+    width: 150px;
+    height: auto;
+}
+
 .center-text {
     text-align: center;
 }
@@ -200,3 +205,4 @@
     clear: both;
     display: table;
   }
+
