@@ -22,7 +22,7 @@ $(document).ready(function(){
                 "flowerId": 3,
                 "name": "Red Rose",
                 "image": ["../images/flowers/rose-red-1.png", "../images/flowers/rose-red-2.png", "../images/flowers/rose-red-3.png"],
-                "icon": "../images/flower-icons/rose-red-lavender.png",
+                "icon": "../images/flower-icons/rose-icon-red.png",
                 "meaning": "",
                 "tags": "passion, romance"
             },

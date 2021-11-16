@@ -39,7 +39,7 @@ jQuery(document).ready(function($){
             "flowerId": 3,
             "name": "Red Rose",
             "image": ["../images/flowers/rose-red-1.png", "../images/flowers/rose-red-2.png", "../images/flowers/rose-red-3.png"],
-            "icon": "../images/flower-icons/rose-red-lavender.png",
+            "icon": "../images/flower-icons/rose-icon-red.png",
             "meaning": "",
             "tags": "passion, romance"
         },
@@ -140,5 +140,44 @@ jQuery(document).ready(function($){
 
 
 function removeFlower(position) {
+    ctr = sessionStorage.getItem("bybFlowerCtr");
+    console.log(sessionStorage.getItem("bybFlowerCtr"));
+
     console.log("position " + position);
+
+    // Remove flower from left list when clicking trash
+    var row = (document).getElementById("row"+position);
+    row.parentNode.removeChild(row);
+
+    // Depending on position of flower being removed, remove session storage for last flower 
+    // and replace removed flower with flower above it
+    if (position == 3) {
+        sessionStorage.removeItem("bybFlower"+position);
+        
+    } else if (position == 2) {
+        if (ctr == 2) {
+            sessionStorage.removeItem("bybFlower"+position);
+        } else if (ctr == 3) {
+            pos3 = sessionStorage.getItem("bybFlower3");
+            sessionStorage.setItem("bybFlower2", pos3)
+        }
+    } else if (position == 1) {
+        if (ctr == 1) {
+            sessionStorage.removeItem("bybFlower"+position);
+        } else if (ctr == 2) {
+            pos2 = sessionStorage.getItem("bybFlower2");
+            sessionStorage.setItem("bybFlower1", pos2)
+        } else if (ctr == 3) {
+            pos3 = sessionStorage.getItem("bybFlower3");
+            pos2 = sessionStorage.getItem("bybFlower2");
+            sessionStorage.setItem("bybFlower2", pos3)
+            sessionStorage.setItem("bybFlower1", pos2)
+        }
+    }
+
+
+    location.reload();
+    
+    ctr--;
+    sessionStorage.setItem("bybFlowerCtr", ctr);
 }
