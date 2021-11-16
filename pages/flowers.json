@@ -2,17 +2,66 @@
     "flowers": [
         {
             "flowerId": 1,
-            "name": "rose-red",
-            "image": ["../images/bouquets/suncrisp.png", "../images/bouquets/suncrisp.png"],
-            "meaning": "This bouquet is perfect for Mother's Day. The flowers within it show love and adoraction.",
-            "price": 34
+            "name": "rose-lavender",
+            "image": ["../images/flowers/rose-lavender-1.png", "../images/flowers/rose-lavender-2.png", "../images/flowers/rose-lavender-3.png"],
+            "meaning": "",
+            "tags": "passion, romance"
         },
         {
-            "itemNum": 2,
-            "name": "Passion Bouquet",
-            "image": "../images/bouquets/passion.png",
-            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
-            "price": 34
+            "flowerId": 2,
+            "name": "rose-orange",
+            "image": ["../images/flowers/rose-orange-1.png", "../images/flowers/rose-orange-2.png", "../images/flowers/rose-orange-3.png"],
+            "meaning": "",
+            "tags": "passion, romance"
+        },
+        {
+            "flowerId": 3,
+            "name": "rose-red",
+            "image": ["../images/flowers/rose-red-1.png", "../images/flowers/rose-red-2.png", "../images/flowers/rose-red-3.png"],
+            "meaning": "",
+            "tags": "passion, romance"
+        },
+        {
+            "flowerId": 4,
+            "name": "carnation-pink",
+            "image": ["../images/flowers/carnation-pink-1.png", "../images/flowers/carnation-pink-2.png", "../images/flowers/carnation-pink-3.png"],
+            "meaning": "",
+            "tags": "passion, romance"
+        },
+        {
+            "flowerId": 5,
+            "name": "carnation-purple",
+            "image": ["../images/flowers/carnation-purple-1.png", "../images/flowers/carnation-purple-2.png", "../images/flowers/carnation-purple-3.png"],
+            "meaning": "",
+            "tags": "passion, romance"
+        },
+        {
+            "flowerId": 6,
+            "name": "carnation-white",
+            "image": ["../images/flowers/carnation-white-1.png", "../images/flowers/carnation-white-2.png", "../images/flowers/carnation-white-3.png"],
+            "meaning": "",
+            "tags": "passion, romance"
+        },
+        {
+            "flowerId": 7,
+            "name": "tulip-peach",
+            "image": ["../images/flowers/tulip-peach-1.png", "../images/flowers/tulip-peach-2.png", "../images/flowers/tulip-peach-3.png"],
+            "meaning": "",
+            "tags": "passion, romance"
+        },
+        {
+            "flowerId": 8,
+            "name": "tulip-purple",
+            "image": ["../images/flowers/tulip-purple-1.png", "../images/flowers/tulip-purple-2.png", "../images/flowers/tulip-purple-3.png"],
+            "meaning": "",
+            "tags": "passion, romance"
+        },
+        {
+            "flowerId": 9,
+            "name": "tulip-yellow",
+            "image": ["../images/flowers/tulip-yellow-1.png", "../images/flowers/tulip-yellow-2.png", "../images/flowers/tulip-yellow-3.png"],
+            "meaning": "",
+            "tags": "passion, romance"
         }
     ]
 }

@@ -81,7 +81,7 @@ h1 {letter-spacing: 6px}
                 $("#row" + j).append("<td><div class='shop-item' onclick='addToCart("+products[i].itemNum+");'><img src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + " </br><div>" + products[i].price + "</div></div></td>");
             } else {
                 // Get bouquets based on search 
-                if ((products[i].meaning).toLowerCase().includes(searchInput)){
+                if ((products[i].meaning).toLowerCase().includes(searchInput) || (products[i].name).toLowerCase().includes(searchInput)){
                     $("#row" + j).append("<td><div class='shop-item' onclick='addToCart("+products[i].itemNum+");'><img src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + " </br><div>" + products[i].price + "</div></div></td>");
                 }
             }
@@ -112,7 +112,20 @@ h1 {letter-spacing: 6px}
     </div>
 </header>
 
-<div class="table-parent center center-table">
+<!--  SEARCH BAR -->
+<!-- Load icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- The form -->
+<form class="example" action="shop.html">
+  <input type="text" placeholder="Search..." name="search">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+
+<!-- PRODUCTS CONTENT-->
+
+<div class="table-parent center center-table" style="padding-top: 35px;">
     <div class="inner center-table">
         <table class="table table-center shop-table">
             <tbody id="products"></tbody>
