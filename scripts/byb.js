@@ -14,6 +14,11 @@ console.log("session" + sessionStorage.getItem("bybFlowerCtr"));
 
 console.log(bybFlowerCtr);
 
+/* if (sessionStorage.getItem("bybFlowerCtr") > 0) {
+    document.getElementById("start-over-btn").disabled = true;
+} else {
+    document.getElementById("start-over-btn").disabled = false;
+} */
 
 jQuery(document).ready(function($){
 
@@ -93,6 +98,14 @@ jQuery(document).ready(function($){
         }
     ];
 
+    if (sessionStorage.getItem("bybFlowerCtr") > 0) {
+        $('#start-over-btn').removeAttr('disabled');
+        console.log("disabled");
+    } else {
+        $('#start-over-btn').attr('disabled','disabled');
+        console.log("enabled");
+    }
+
     /*var flowers = $.getJSON("flowers.json", function(){
         console.log()
     }) */
@@ -135,6 +148,16 @@ jQuery(document).ready(function($){
         sessionStorage.setItem("bybFlowerCtr", bybFlowerCtr);
         console.log("session " + sessionStorage.getItem("bybFlowerCtr"));
 
+        // Disable start over button if no flowers in vase
+        if (sessionStorage.getItem("bybFlowerCtr") > 0) {
+            $('#start-over-btn').removeAttr('disabled');
+            console.log("disabled");
+        } else {
+            $('#start-over-btn').attr('disabled','disabled');
+            console.log("enabled");
+        }
+    
+
       })
 });
 
@@ -175,9 +198,17 @@ function removeFlower(position) {
         }
     }
 
-
     location.reload();
     
     ctr--;
     sessionStorage.setItem("bybFlowerCtr", ctr);
+}
+
+function startOver(){
+    sessionStorage.removeItem("bybFlower1");
+    sessionStorage.removeItem("bybFlower2");
+    sessionStorage.removeItem("bybFlower3");
+    sessionStorage.setItem("bybFlowerCtr", 0);
+    location.reload();
+    console.log("in function");
 }
