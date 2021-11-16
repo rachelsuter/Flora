@@ -52,7 +52,7 @@ h1 {letter-spacing: 6px}
                 <h2>Column 1</h2>
                 <p>Hello World</p>
 
-                <div> 
+                <div style="height:50%;"> 
                     <table class="table table-center">
                         <tbody id="flowers-table">
                             <tr class="center-text table-headings">
@@ -64,10 +64,13 @@ h1 {letter-spacing: 6px}
                     </table>
                 </div>
 
-                <button id="start-over-btn" onclick="areYouSure()">Start Over</button>
+                <div style="margin-bottom: 0; text-align: center;">
+                    <button id="start-over-btn" class="start-over-btn" style="margin-bottom: 0" onclick="areYouSure()"><img class="resize-start-over" src="../images/icons/start-over-btn-icon.png"/>Start Over</button>
                 </div>
+            </div>
 
                 <div class="col col2">
+                    <div style="text-align: center;">CHOOSE UP TO 3 TYPES OF FLOWERS  TO FILL THE VASE</div>
                     <div id="flower-option-btns-container" class="flower-option-btns-container">	
                          <div class="dropdown">
                             <button class="dropbtn">Roses</button>
@@ -108,9 +111,14 @@ h1 {letter-spacing: 6px}
                 </div>
 
                 <div class="col col3">
-                    <h2>Column 3</h2>
-                    <p>Some other text..</p>
-                    <p>Some other text..</p>
+                    <div class="col3-content" id="col3-content" style="height:75%;">
+                        <h2>Meaning</h2>
+
+                        
+                    </div>
+                    <div style="bottom: 0; text-align: center;">
+                        <button id="add-to-cart-btn" class="add-to-cart-btn" onclick="addCustomBouquetToCart()"><img class="resize-cart" src="../images/icons/cart-icon.png"/>Add to Cart</button>
+                    </div>
                 </div>
             </div>
         </div>

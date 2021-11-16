@@ -14,12 +14,6 @@ console.log("session" + sessionStorage.getItem("bybFlowerCtr"));
 
 console.log(bybFlowerCtr);
 
-/* if (sessionStorage.getItem("bybFlowerCtr") > 0) {
-    document.getElementById("start-over-btn").disabled = true;
-} else {
-    document.getElementById("start-over-btn").disabled = false;
-} */
-
 jQuery(document).ready(function($){
 
     // JSON with flower information
@@ -100,9 +94,11 @@ jQuery(document).ready(function($){
 
     if (sessionStorage.getItem("bybFlowerCtr") > 0) {
         $('#start-over-btn').removeAttr('disabled');
+        $('#add-to-cart-btn').removeAttr('disabled');
         console.log("disabled");
     } else {
         $('#start-over-btn').attr('disabled','disabled');
+        $('#add-to-cart-btn').attr('disabled','disabled');
         console.log("enabled");
     }
 
@@ -128,6 +124,7 @@ jQuery(document).ready(function($){
             img = flowers[flowerId-1].image[bybFlowerCtr-1];
             icon = flowers[flowerId-1].icon;
             flowerName = flowers[flowerId-1].name;
+            meaning = flowers[flowerId-1].meaning;
             console.log(img);
 
             // Place image at correct position in vase 
@@ -140,6 +137,10 @@ jQuery(document).ready(function($){
             $("#row" + bybFlowerCtr).append("<td>"+flowerName+"</td>");
             $("#row" + bybFlowerCtr).append("<td><a onclick='removeFlower("+bybFlowerCtr+")'><img class='icon-resize' src='../images/icons/trash-icon.png'</a></td>");
 
+            
+            $("#col3-content").append("<p id='meaning" + bybFlowerCtr + "'></p>");
+            $("#meaning" + bybFlowerCtr).append(meaning);
+
             // Save flower id into session variable bybFlower#
             sessionStorage.setItem("bybFlower"+bybFlowerCtr, flowerId);
             console.log("bybFlower"+bybFlowerCtr + " : " +sessionStorage.getItem("bybFlower"+bybFlowerCtr));
@@ -148,12 +149,14 @@ jQuery(document).ready(function($){
         sessionStorage.setItem("bybFlowerCtr", bybFlowerCtr);
         console.log("session " + sessionStorage.getItem("bybFlowerCtr"));
 
-        // Disable start over button if no flowers in vase
+        // Disable start over button & add to cart btn if no flowers in vase
         if (sessionStorage.getItem("bybFlowerCtr") > 0) {
             $('#start-over-btn').removeAttr('disabled');
+            $('#add-to-cart-btn').removeAttr('disabled');
             console.log("disabled");
         } else {
             $('#start-over-btn').attr('disabled','disabled');
+            $('#add-to-cart-btn').attr('disabled','disabled');
             console.log("enabled");
         }
     
@@ -237,5 +240,22 @@ function startOver(){
     sessionStorage.removeItem("bybFlower3");
     sessionStorage.setItem("bybFlowerCtr", 0);
     location.reload();
-    console.log("in function");
+}
+
+function addCustomBouquetToCart() {
+    ctr = sessionStorage.getItem("customBouquetInCartCtr");
+    ctr++;
+    sessionStorage.setItem("customBouquetInCartCtr", ctr);
+
+    // customItem# = ###
+    var flowersInBouquet = sessionStorage.getItem("bybFlower1")+sessionStorage.getItem("bybFlower2")+sessionStorage.getItem("bybFlower3");
+    sessionStorage.setItem("customItem"+ctr, flowersInBouquet);
+
+    console.log(typeof sessionStorage.getItem("customItem"+ctr));
+
+    sessionStorage.removeItem("bybFlower1");
+    sessionStorage.removeItem("bybFlower2");
+    sessionStorage.removeItem("bybFlower3");
+    sessionStorage.setItem("bybFlowerCtr", 0);
+    location.reload();
 }

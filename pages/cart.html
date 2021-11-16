@@ -67,6 +67,82 @@ h1 {letter-spacing: 6px}
         }
         
           ];
+        
+        var flowers = [
+        {
+            "flowerId": 1,
+            "name": "Lavender Rose",
+            "image": ["../images/flowers/rose-lavender-1.png", "../images/flowers/rose-lavender-2.png", "../images/flowers/rose-lavender-3.png"],
+            "icon": "../images/flower-icons/rose-icon-lavender.png",
+            "meaning": "1",
+            "tags": "passion, romance"
+        },
+        {
+            "flowerId": 2,
+            "name": "Orange Rose",
+            "image": ["../images/flowers/rose-orange-1.png", "../images/flowers/rose-orange-2.png", "../images/flowers/rose-orange-3.png"],
+            "icon": "../images/flower-icons/rose-icon-orange.png",
+            "meaning": "2",
+            "tags": "passion, romance"
+        },
+        {
+            "flowerId": 3,
+            "name": "Red Rose",
+            "image": ["../images/flowers/rose-red-1.png", "../images/flowers/rose-red-2.png", "../images/flowers/rose-red-3.png"],
+            "icon": "../images/flower-icons/rose-icon-red.png",
+            "meaning": "3",
+            "tags": "passion, romance"
+        },
+        {
+            "flowerId": 4,
+            "name": "Pink Carnation",
+            "image": ["../images/flowers/carnation-pink-1.png", "../images/flowers/carnation-pink-2.png", "../images/flowers/carnation-pink-3.png"],
+            "icon": "../images/flower-icons/carnation-icon-pink.png",
+            "meaning": "4",
+            "tags": "passion, romance"
+        },
+        {
+            "flowerId": 5,
+            "name": "Purple Carnation",
+            "image": ["../images/flowers/carnation-purple-1.png", "../images/flowers/carnation-purple-2.png", "../images/flowers/carnation-purple-3.png"],
+            "icon": "../images/flower-icons/carnation-icon-purple.png",
+            "meaning": "5",
+            "tags": "passion, romance"
+        },
+        {
+            "flowerId": 6,
+            "name": "White Carnation",
+            "image": ["../images/flowers/carnation-white-1.png", "../images/flowers/carnation-white-2.png", "../images/flowers/carnation-white-3.png"],
+            "icon": "../images/flower-icons/carnation-icon-white.png",
+            "meaning": "6",
+            "tags": "passion, romance"
+        },
+        {
+            "flowerId": 7,
+            "name": "Peach Tulip",
+            "image": ["../images/flowers/tulip-peach-1.png", "../images/flowers/tulip-peach-2.png", "../images/flowers/tulip-peach-3.png"],
+            "icon": "../images/flower-icons/tulip-icon-peach.png",
+            "meaning": "7",
+            "tags": "passion, romance"
+        },
+        {
+            "flowerId": 8,
+            "name": "Purple Tulip",
+            "image": ["../images/flowers/tulip-purple-1.png", "../images/flowers/tulip-purple-2.png", "../images/flowers/tulip-purple-3.png"],
+            "icon": "../images/flower-icons/tulip-icon-purple.png",
+            "meaning": "8",
+            "tags": "passion, romance"
+        },
+        {
+            "flowerId": 9,
+            "name": "Yellow Tulip",
+            "image": ["../images/flowers/tulip-yellow-1.png", "../images/flowers/tulip-yellow-2.png", "../images/flowers/tulip-yellow-3.png"],
+            "icon": "../images/flower-icons/tulip-icon-yellow.png",
+            "meaning": "9",
+            "tags": "passion, romance"
+        }
+    ];
+        
         var i = 1;
         var j = 0;
 
@@ -126,7 +202,64 @@ h1 {letter-spacing: 6px}
             }
             i++;
         }
+
+        // Go through all custom bouquets
+        var itemId;
+
+        customBouquetCtr = parseInt(sessionStorage.getItem("customBouquetInCartCtr"));
+        var l = 1;
+        while (l <= customBouquetCtr) {
+            
+            itemId = sessionStorage.getItem("customItem"+l);
+            console.log(itemId);
+
+            flower1 = parseInt(itemId.charAt(0));
+            flower2 = parseInt(itemId.charAt(1));
+            flower3 = parseInt(itemId.charAt(2));
+
+            flower1Img = flowers[flower1-1].image[0];
+            flower2Img = flowers[flower2-1].image[1];
+            flower3Img = flowers[flower3-1].image[2];
+            
+            /*console.log(flowers[flower1-1].image[0]);
+            console.log(flowers[flower2-1].image[1]);
+            console.log(flowers[flower3-1].image[2]);*/
+
+            $("#products").append("<tr id='row" + itemId + "'></tr>");
+            console.log("itemId:" +itemId);
+            $("#row" + itemId).append("<td class='center-text' style='width:25%'><div class='byb-img-parent center resize-cart-custom'><img id='byb-flower-3' class='image2 resize-cart-custom' src='"+flower3Img+"'/><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower1Img+"'/><img id='byb-flower-2' class='image2 resize-cart-custom' src='"+flower2Img+"'/><img id='byb-vase' class='image1 resize-cart-custom' src='../images/flowers/vase.png'/></div></td>");
+
+            /*$("#row" + itemId).append("<td class='center-text' style='width:25%'><div class='byb-img-parent center resize-cart-custom'><img id='byb-flower-3' class='image2 resize-cart-custom' src='"+flower3Img+"'/><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower1Img+"'/><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower2Img+"'/><img id='byb-flower-1' class='image2 resize-cart-custom' src='../images/flowers/vase.png'/></div></td>");
+
+            $("#row" + itemId).append("<td class='center-text' style='width:25%'>test</td>");
+            $("#row" + itemId).append("<td>test</td>");
+            $("#row" + itemId).append("<td>test</td>");
+            */
+            l++;
+        }
         });
+
+        /*
+            "<td class='center-text' style='width:25%'>
+            <div class='byb-img-parent center resize-cart-custom'>
+                <img id='byb-flower-3' class='image2 resize-cart-custom'/>
+                <img id='byb-flower-1' class='image2 resize-cart-custom' src='../images/flowers/rose-orange-1.png'/>
+                <img id='byb-flower-2' class='image2 resize-cart-custom' src='../images/flowers/carnation-pink-2.png'/>
+                <img id='byb-vase' class='image1 resize-cart-custom' src='../images/flowers/vase.png'/>
+            </div>
+        </td>"
+
+        */
+        /*
+        <td class='center-text' style='width:25%'>
+            <div class="byb-img-parent center resize-cart-custom">
+                <img id='byb-flower-3' class='image2 resize-cart-custom'/>
+                <img id="byb-flower-1" class="image2 resize-cart-custom" src="../images/flowers/rose-orange-1.png"/>
+                <img id="byb-flower-2" class="image2 resize-cart-custom" src="../images/flowers/carnation-pink-2.png"/>
+                <img id="byb-vase" class="image1 resize-cart-custom" src="../images/flowers/vase.png"/>
+            </div>
+        </td>
+        */
 </script>
 
 <!-- Table -->
@@ -143,6 +276,16 @@ h1 {letter-spacing: 6px}
                         <td>TOTAL</td>
                     </tr>
                     <tr id="BYBtestRow">
+                        <td class='center-text' style='width:25%'>
+                            <div class="byb-img-parent center resize-cart-custom">
+                                <img id="byb-flower-3" class="image2 resize-cart-custom"/>
+                                <img id="byb-flower-1" class="image2 resize-cart-custom" src="../images/flowers/rose-orange-1.png"/>
+                                <img id="byb-flower-2" class="image2 resize-cart-custom" src="../images/flowers/carnation-pink-2.png"/>
+                                <img id="byb-vase" class="image1 resize-cart-custom" src="../images/flowers/vase.png"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="BYBtestRow2">
                         <td class='center-text' style='width:25%'>
                             <div class="byb-img-parent center resize-cart-custom">
                                 <img id="byb-flower-3" class="image2 resize-cart-custom"/>
