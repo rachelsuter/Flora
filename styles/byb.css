@@ -115,3 +115,7 @@ html,body { height: 100%; margin: 0px; }
   }
 
   
+  /* START OVER ALERT */
+.confirm-btn-color {
+    background-color: #3B552E;
+}

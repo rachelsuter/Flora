@@ -7,7 +7,7 @@ $(document).ready(function(){
                 "name": "Lavender Rose",
                 "image": ["../images/flowers/rose-lavender-1.png", "../images/flowers/rose-lavender-2.png", "../images/flowers/rose-lavender-3.png"],
                 "icon": "../images/flower-icons/rose-icon-lavender.png",
-                "meaning": "",
+                "meaning": "1",
                 "tags": "passion, romance"
             },
             {
@@ -15,7 +15,7 @@ $(document).ready(function(){
                 "name": "Orange Rose",
                 "image": ["../images/flowers/rose-orange-1.png", "../images/flowers/rose-orange-2.png", "../images/flowers/rose-orange-3.png"],
                 "icon": "../images/flower-icons/rose-icon-orange.png",
-                "meaning": "",
+                "meaning": "2",
                 "tags": "passion, romance"
             },
             {
@@ -23,7 +23,7 @@ $(document).ready(function(){
                 "name": "Red Rose",
                 "image": ["../images/flowers/rose-red-1.png", "../images/flowers/rose-red-2.png", "../images/flowers/rose-red-3.png"],
                 "icon": "../images/flower-icons/rose-icon-red.png",
-                "meaning": "",
+                "meaning": "3",
                 "tags": "passion, romance"
             },
             {
@@ -31,7 +31,7 @@ $(document).ready(function(){
                 "name": "Pink Carnation",
                 "image": ["../images/flowers/carnation-pink-1.png", "../images/flowers/carnation-pink-2.png", "../images/flowers/carnation-pink-3.png"],
                 "icon": "../images/flower-icons/carnation-icon-pink.png",
-                "meaning": "",
+                "meaning": "4",
                 "tags": "passion, romance"
             },
             {
@@ -39,7 +39,7 @@ $(document).ready(function(){
                 "name": "Purple Carnation",
                 "image": ["../images/flowers/carnation-purple-1.png", "../images/flowers/carnation-purple-2.png", "../images/flowers/carnation-purple-3.png"],
                 "icon": "../images/flower-icons/carnation-icon-purple.png",
-                "meaning": "",
+                "meaning": "5",
                 "tags": "passion, romance"
             },
             {
@@ -47,7 +47,7 @@ $(document).ready(function(){
                 "name": "White Carnation",
                 "image": ["../images/flowers/carnation-white-1.png", "../images/flowers/carnation-white-2.png", "../images/flowers/carnation-white-3.png"],
                 "icon": "../images/flower-icons/carnation-icon-white.png",
-                "meaning": "",
+                "meaning": "6",
                 "tags": "passion, romance"
             },
             {
@@ -55,7 +55,7 @@ $(document).ready(function(){
                 "name": "Peach Tulip",
                 "image": ["../images/flowers/tulip-peach-1.png", "../images/flowers/tulip-peach-2.png", "../images/flowers/tulip-peach-3.png"],
                 "icon": "../images/flower-icons/tulip-icon-peach.png",
-                "meaning": "",
+                "meaning": "7",
                 "tags": "passion, romance"
             },
             {
@@ -63,7 +63,7 @@ $(document).ready(function(){
                 "name": "Purple Tulip",
                 "image": ["../images/flowers/tulip-purple-1.png", "../images/flowers/tulip-purple-2.png", "../images/flowers/tulip-purple-3.png"],
                 "icon": "../images/flower-icons/tulip-icon-purple.png",
-                "meaning": "",
+                "meaning": "8",
                 "tags": "passion, romance"
             },
             {
@@ -71,7 +71,7 @@ $(document).ready(function(){
                 "name": "Yellow Tulip",
                 "image": ["../images/flowers/tulip-yellow-1.png", "../images/flowers/tulip-yellow-2.png", "../images/flowers/tulip-yellow-3.png"],
                 "icon": "../images/flower-icons/tulip-icon-yellow.png",
-                "meaning": "",
+                "meaning": "9",
                 "tags": "passion, romance"
             }
         ];
