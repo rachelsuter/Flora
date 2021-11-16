@@ -169,6 +169,9 @@ h1 {letter-spacing: 6px}
 
             //if not added to cart yet, add bouquet item w quantity of 1
             if (bouquetQty[itemNum] == 0){
+
+                sessionStorage.setItem("qtyOf"+itemNum, 1);
+
                 bouquetQty[itemNum] = 1;
                 $("#products").append("<tr id='row" + itemNum + "'></tr>");
 
@@ -189,14 +192,18 @@ h1 {letter-spacing: 6px}
                 $("#row" + itemNum).append("<td class='center-text' style='width:25%' id='row"+itemNum+"price'>$"+price+"</td>");
             } else { //if bouqet item is already in cart
 
+                qty = sessionStorage.getItem("qtyOf"+itemNum);
+                qty++;
+                sessionStorage.setItem("qtyOf"+itemNum, qty);
+
                 /* might want to make item#qty a session variable for when users can add and remove items */
 
                 bouquetQty[itemNum]++;
                 console.log(bouquetQty);
 
                 // Change quantity & price when >1 of same item
-                $("#row" + itemNum + "qty").html(bouquetQty[itemNum]);   
-                $("#row" + itemNum + "price").html("$"+price * bouquetQty[itemNum]);  
+                $("#row" + itemNum + "qty").html(sessionStorage.getItem("qtyOf"+itemNum));   
+                $("#row" + itemNum + "price").html("$"+price * sessionStorage.getItem("qtyOf"+itemNum));  
 
                 console.log("in here");
             }
@@ -209,57 +216,68 @@ h1 {letter-spacing: 6px}
         customBouquetCtr = parseInt(sessionStorage.getItem("customBouquetInCartCtr"));
         var l = 1;
         while (l <= customBouquetCtr) {
+
+            total = 45;
             
             itemId = sessionStorage.getItem("customItem"+l);
             console.log(itemId);
 
             flower1 = parseInt(itemId.charAt(0));
-            flower2 = parseInt(itemId.charAt(1));
+            flower2 = parseInt(itemId.charAt(1)); 
             flower3 = parseInt(itemId.charAt(2));
 
-            flower1Img = flowers[flower1-1].image[0];
-            flower2Img = flowers[flower2-1].image[1];
-            flower3Img = flowers[flower3-1].image[2];
+            
             
             /*console.log(flowers[flower1-1].image[0]);
             console.log(flowers[flower2-1].image[1]);
             console.log(flowers[flower3-1].image[2]);*/
+            
+            // If only one of this item
+            if(!$('#row'+itemId).length){
+                sessionStorage.setItem("qty"+itemId, 1);
+                $("#products").append("<tr id='row" + itemId + "'></tr>");
+                console.log("itemId:" +itemId);
 
-            $("#products").append("<tr id='row" + itemId + "'></tr>");
-            console.log("itemId:" +itemId);
-            $("#row" + itemId).append("<td class='center-text' style='width:25%'><div class='byb-img-parent center resize-cart-custom'><img id='byb-flower-3' class='image2 resize-cart-custom' src='"+flower3Img+"'/><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower1Img+"'/><img id='byb-flower-2' class='image2 resize-cart-custom' src='"+flower2Img+"'/><img id='byb-vase' class='image1 resize-cart-custom' src='../images/flowers/vase.png'/></div></td>");
+                if (flower2 == 0) {
+                    flower1Img = flowers[flower1-1].image[0];
+                    $("#row" + itemId).append("<td class='center-text' style='width:25%'><div class='byb-img-parent center resize-cart-custom'><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower1Img+"'/><img id='byb-vase' class='image1 resize-cart-custom' src='../images/flowers/vase.png'/><br>Custom Bouquet<br><input type='checkbox'>Include meaning</div></td>");
 
-            /*$("#row" + itemId).append("<td class='center-text' style='width:25%'><div class='byb-img-parent center resize-cart-custom'><img id='byb-flower-3' class='image2 resize-cart-custom' src='"+flower3Img+"'/><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower1Img+"'/><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower2Img+"'/><img id='byb-flower-1' class='image2 resize-cart-custom' src='../images/flowers/vase.png'/></div></td>");
+                } else if (flower3 == 0) {
+                    flower1Img = flowers[flower1-1].image[0];
+                    flower2Img = flowers[flower2-1].image[1];
+                    $("#row" + itemId).append("<td class='center-text' style='width:25%'><div class='byb-img-parent center resize-cart-custom'><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower1Img+"'/><img id='byb-flower-2' class='image2 resize-cart-custom' src='"+flower2Img+"'/><img id='byb-vase' class='image1 resize-cart-custom' src='../images/flowers/vase.png'/><br>Custom Bouquet<br><input type='checkbox'>Include meaning</div></td>");
 
-            $("#row" + itemId).append("<td class='center-text' style='width:25%'>test</td>");
-            $("#row" + itemId).append("<td>test</td>");
-            $("#row" + itemId).append("<td>test</td>");
-            */
+                } else {
+                    flower1Img = flowers[flower1-1].image[0];
+                    flower2Img = flowers[flower2-1].image[1];
+                    flower3Img = flowers[flower3-1].image[2];
+                    $("#row" + itemId).append("<td class='center-text' style='width:25%'><div class='byb-img-parent center resize-cart-custom'><img id='byb-flower-3' class='image2 resize-cart-custom' src='"+flower3Img+"'/><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower1Img+"'/><img id='byb-flower-2' class='image2 resize-cart-custom' src='"+flower2Img+"'/><img id='byb-vase' class='image1 resize-cart-custom' src='../images/flowers/vase.png'/><br>Custom Bouquet<br><input type='checkbox'>Include meaning</div></td>");
+                }
+
+
+                $("#row" + itemId).append("<td class='center-text' style='width:25%'>$45</td>");
+                $("#row" + itemId).append("<td id='row"+itemId+"qty' class='center-text' style='width:25%'>1</td>");
+                $("#row" + itemId).append("<td id='row"+itemId+"total' class='center-text' style='width:25%'>$"+total+"</td>");
+            } else { // If same item is already in the cart
+                qty = sessionStorage.getItem("qty"+itemId);
+                qty++;
+                sessionStorage.setItem("qty"+itemId, qty);
+
+                total = total*(parseInt(sessionStorage.getItem("qty"+itemId)));
+
+                // Change quantity & price when >1 of same item
+                $("#row" + itemId + "qty").html(sessionStorage.getItem("qty"+itemId));   
+                $("#row" + itemId + "total").html("$"+total);  
+            }
+
+            console.log("item"+itemId+"qty: " + sessionStorage.getItem("qty"+itemId));
+
+            
+        
             l++;
         }
         });
 
-        /*
-            "<td class='center-text' style='width:25%'>
-            <div class='byb-img-parent center resize-cart-custom'>
-                <img id='byb-flower-3' class='image2 resize-cart-custom'/>
-                <img id='byb-flower-1' class='image2 resize-cart-custom' src='../images/flowers/rose-orange-1.png'/>
-                <img id='byb-flower-2' class='image2 resize-cart-custom' src='../images/flowers/carnation-pink-2.png'/>
-                <img id='byb-vase' class='image1 resize-cart-custom' src='../images/flowers/vase.png'/>
-            </div>
-        </td>"
-
-        */
-        /*
-        <td class='center-text' style='width:25%'>
-            <div class="byb-img-parent center resize-cart-custom">
-                <img id='byb-flower-3' class='image2 resize-cart-custom'/>
-                <img id="byb-flower-1" class="image2 resize-cart-custom" src="../images/flowers/rose-orange-1.png"/>
-                <img id="byb-flower-2" class="image2 resize-cart-custom" src="../images/flowers/carnation-pink-2.png"/>
-                <img id="byb-vase" class="image1 resize-cart-custom" src="../images/flowers/vase.png"/>
-            </div>
-        </td>
-        */
 </script>
 
 <!-- Table -->
@@ -276,16 +294,6 @@ h1 {letter-spacing: 6px}
                         <td>TOTAL</td>
                     </tr>
                     <tr id="BYBtestRow">
-                        <td class='center-text' style='width:25%'>
-                            <div class="byb-img-parent center resize-cart-custom">
-                                <img id="byb-flower-3" class="image2 resize-cart-custom"/>
-                                <img id="byb-flower-1" class="image2 resize-cart-custom" src="../images/flowers/rose-orange-1.png"/>
-                                <img id="byb-flower-2" class="image2 resize-cart-custom" src="../images/flowers/carnation-pink-2.png"/>
-                                <img id="byb-vase" class="image1 resize-cart-custom" src="../images/flowers/vase.png"/>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr id="BYBtestRow2">
                         <td class='center-text' style='width:25%'>
                             <div class="byb-img-parent center resize-cart-custom">
                                 <img id="byb-flower-3" class="image2 resize-cart-custom"/>

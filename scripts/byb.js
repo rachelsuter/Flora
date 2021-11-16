@@ -247,15 +247,36 @@ function addCustomBouquetToCart() {
     ctr++;
     sessionStorage.setItem("customBouquetInCartCtr", ctr);
 
+    
+    // Add flower id # to string called customId#
+    // If flower doesn't exist, add 0
+
+    flower1 = sessionStorage.getItem("bybFlower1");
+    sessionStorage.removeItem("bybFlower1");
+
+    if (sessionStorage.getItem("bybFlower2") == null) {
+        flower2 = 0;
+    } else {
+        flower2 = sessionStorage.getItem("bybFlower2");
+        sessionStorage.removeItem("bybFlower2");
+    }
+
+    if (sessionStorage.getItem("bybFlower3") == null) {
+        flower3 = 0;
+    } else {
+        flower3 = sessionStorage.getItem("bybFlower3");
+        sessionStorage.removeItem("bybFlower3");
+    } 
+
     // customItem# = ###
-    var flowersInBouquet = sessionStorage.getItem("bybFlower1")+sessionStorage.getItem("bybFlower2")+sessionStorage.getItem("bybFlower3");
+    //var flowersInBouquet = sessionStorage.getItem("bybFlower1")+sessionStorage.getItem("bybFlower2")+sessionStorage.getItem("bybFlower3");
+    
+    var flowersInBouquet = flower1+flower2+flower3;
     sessionStorage.setItem("customItem"+ctr, flowersInBouquet);
 
     console.log(typeof sessionStorage.getItem("customItem"+ctr));
 
-    sessionStorage.removeItem("bybFlower1");
-    sessionStorage.removeItem("bybFlower2");
-    sessionStorage.removeItem("bybFlower3");
+
     sessionStorage.setItem("bybFlowerCtr", 0);
     location.reload();
 }
