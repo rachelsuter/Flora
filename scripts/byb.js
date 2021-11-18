@@ -135,7 +135,7 @@ jQuery(document).ready(function($){
             console.log("got here");
             $("#row" + bybFlowerCtr).append("<td><img class='icon-resize' src="+icon+"/></td>");
             $("#row" + bybFlowerCtr).append("<td>"+flowerName+"</td>");
-            $("#row" + bybFlowerCtr).append("<td><a onclick='removeFlower("+bybFlowerCtr+")'><img class='icon-resize' src='../images/icons/trash-icon.png'</a></td>");
+            $("#row" + bybFlowerCtr).append("<td><a onclick='areYouSureRemove("+bybFlowerCtr+")'><img class='icon-resize' src='../images/icons/trash-icon-white.png'</a></td>");
 
             
             $("#col3-content").append("<p id='meaning" + bybFlowerCtr + "'></p>");
@@ -164,6 +164,30 @@ jQuery(document).ready(function($){
       })
 });
 
+
+function areYouSureRemove(position) {
+    swal({
+        title: "Are you sure you want to remove this flower?",
+        buttons: {
+            remove: {
+                text: "Remove",
+                className: "confirm-btn-color",
+              },
+            cancel: true,
+            
+
+        }
+        /*buttons: ["Cancel", "Start Over"],
+        dangerMode: true,*/
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          removeFlower(position);
+        } else {
+          //swal("Your imaginary file is safe!");
+        }
+      });
+}
 
 function removeFlower(position) {
     ctr = sessionStorage.getItem("bybFlowerCtr");
@@ -207,11 +231,11 @@ function removeFlower(position) {
     sessionStorage.setItem("bybFlowerCtr", ctr);
 }
 
-function areYouSure() {
+function areYouSureStartOver() {
     swal({
-        title: "Are you sure?",
+        title: "Are you sure you want to start over?",
         text: "Once you start over, you will not be able to recover this bouquet.",
-        icon: "../images/icons/start-over-icon.png",
+        /*icon: "../images/icons/start-over-icon.png",*/
         buttons: {
             startOver: {
                 text: "Start Over",
@@ -241,6 +265,7 @@ function startOver(){
     sessionStorage.setItem("bybFlowerCtr", 0);
     location.reload();
 }
+
 
 function addCustomBouquetToCart() {
     ctr = sessionStorage.getItem("customBouquetInCartCtr");

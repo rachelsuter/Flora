@@ -85,6 +85,7 @@ $(document).ready(function(){
             flowerId = sessionStorage.getItem("bybFlower"+i)
             icon = flowers[flowerId-1].icon;
             flowerName = flowers[flowerId-1].name;
+            meaning = flowers[flowerId-1].meaning;
 
             // Add flower to correct position in vase
             $('#byb-flower-'+i).attr('src', flowers[flowerId-1].image[i-1]);
@@ -94,8 +95,10 @@ $(document).ready(function(){
             console.log("got here");
             $("#row" + i).append("<td><img class='icon-resize' src="+icon+"/></td>");
             $("#row" + i).append("<td>"+flowerName+"</td>");
-            $("#row" + i).append("<td><a onclick='removeFlower("+i+")'><img class='icon-resize' src='../images/icons/trash-icon.png'</a></td>");
+            $("#row" + i).append("<td><a onclick='areYouSureRemove("+i+")'><img class='icon-resize' src='../images/icons/trash-icon-white.png'</a></td>");
 
+            $("#col3-content").append("<p id='meaning" + bybFlowerCtr + "'></p>");
+            $("#meaning" + bybFlowerCtr).append(meaning+"<br><br>");
             
         }
 
