@@ -13,6 +13,20 @@
             "image": "../images/bouquets/passion.png",
             "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
             "price": 34
+        },
+        {
+            "itemNum": 3,
+            "name": "different1",
+            "image": "../images/bouquets/passion.png",
+            "meaning": "1 The bold flowers within this bouquet show love, passion, and devotion.",
+            "price": 34
+        },
+        {
+            "itemNum": 4,
+            "name": "different2",
+            "image": "../images/bouquets/passion.png",
+            "meaning": "2 The bold flowers within this bouquet show love, passion, and devotion.",
+            "price": 34
         }
     ]
 }

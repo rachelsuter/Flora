@@ -11,3 +11,8 @@ function addToCart(itemNum) {
     //location.href = window.location.href;
 
 }
+
+function loadItemInfo(itemNum) {
+    sessionStorage.setItem('currentShopItem', itemNum);
+    location.href = "../pages/shop-item-info.html";
+}
