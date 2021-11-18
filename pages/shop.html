@@ -73,18 +73,10 @@ h1 {letter-spacing: 6px}
             if (searchInput == null || searchInput.length == 0) {
                 $("#row" + j).append("<td><div class='shop-item'><div class='quick-add-btn-container'><button class='quick-add-btn' onclick='addToCart("+products[i].itemNum+");'>test</button></div><img onclick='loadItemInfo("+products[i].itemNum+");' src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + "</div> </br><div>$" + products[i].price + "</div></td>");
 
-                //$("#row" + j).append("<td><div class='shop-item' ><img onclick='loadItemInfo("+products[i].itemNum+");' src='" + products[i].image + "' style='width:200px;height:270px;'/></br><div class='text-center'>" + products[i].name + "</div><div>$" + products[i].price + "</div><div class='quick-add-btn-container'><button class='quick-add-btn' onclick='addToCart("+products[i].itemNum+");><div class='text-center'>test</div></button></div></td>");
-                //$("#row" + j).append("<td><div class='shop-item'><img onclick='loadItemInfo("+products[i].itemNum+"); src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + "</div> </br><div>$" + products[i].price + "</div><div class='quick-add-btn-container'><button class='quick-add-btn' onclick='addToCart("+products[i].itemNum+");>hi</div><div class='text-center'>test</div></button></div></td>");
-
-                //$("#row" + j).append("<td><div class='shop-item' onclick='addToCart("+products[i].itemNum+");'><img src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + "</div> </br><div>$" + products[i].price + "</div></td>");
-                //<button onclick='addToCart("+products[i].itemNum+");'>test</button>
-
             } else {
                 // Get bouquets based on search 
                 if ((products[i].meaning).toLowerCase().includes(searchInput) || (products[i].name).toLowerCase().includes(searchInput)){
-                    //$("#row" + j).append("<td><div class='shop-item' onclick='addToCart("+products[i].itemNum+");'><img src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + "</div> </br><div>$" + products[i].price + "</div></td>");
                     $("#row" + j).append("<td><div class='shop-item'><div class='quick-add-btn-container'><button class='quick-add-btn' onclick='addToCart("+products[i].itemNum+");'>test</button></div><img onclick='loadItemInfo("+products[i].itemNum+");' src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + "</div> </br><div>$" + products[i].price + "</div></td>");
-
                 }
             }
         }
