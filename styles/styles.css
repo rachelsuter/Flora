@@ -73,12 +73,29 @@
     /*border: 1px red solid;*/
 }
 .shop-item {
+    cursor: pointer;
     padding: 10px;
+    position: relative;
 }
 .center-table {
     margin-left: auto;
     margin-right: auto;
 }
+.quick-add-btn-container {
+    padding-bottom: 30px;
+    padding-right: 30px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 20%;
+}
+.quick-add-btn {
+    display: none;
+
+}  
+.shop-item:hover .quick-add-btn {
+    display: inline-block;
+} 
 
 /* CART */
 .cart-table-parent {

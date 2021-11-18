@@ -78,7 +78,7 @@ h1 {letter-spacing: 6px}
             }
             // Get all bouquets (no search)
             if (searchInput == null || searchInput.length == 0) {
-                $("#row" + j).append("<td><div class='shop-item' onclick='addToCart("+products[i].itemNum+");'><img src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + " </br><div>" + products[i].price + "</div></div></td>");
+                $("#row" + j).append("<td><div class='shop-item' onclick='addToCart("+products[i].itemNum+");'><img src='" + products[i].image + "' style='width:200px;height:270px;'><div class='quick-add-btn-container'><button class='quick-add-btn'>hi</button></div><div class='text-center'>" + products[i].name + " </br><div>$" + products[i].price + "</div></div></td>");
             } else {
                 // Get bouquets based on search 
                 if ((products[i].meaning).toLowerCase().includes(searchInput) || (products[i].name).toLowerCase().includes(searchInput)){
