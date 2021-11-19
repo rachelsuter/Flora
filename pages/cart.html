@@ -19,6 +19,7 @@ h1 {letter-spacing: 6px}
     
     <script type="text/javascript" src="../scripts/app.js"></script>
     <script type="text/javascript" src="../scripts/loadHeader.js"></script>
+    <script type="text/javascript" src="../scripts/cart.js"></script>
     
 </head>
 
@@ -43,34 +44,63 @@ h1 {letter-spacing: 6px}
 </header>
 
 <script>
+
     $(document).ready(function() {
         var products = [
         {
             "itemNum": 1,
-            "name": "Suncrisp Bouquet",
-            "image": "../images/bouquets/suncrisp.png",
+            "name": "Optimist",
+            "image": "../images/bouquets/optimist.png",
             "meaning": "This bouquet is perfect for Mother's Day. The flowers within it show love and adoraction.",
             "price": 34
         },
         {
             "itemNum": 2,
-            "name": "Passion Bouquet",
-            "image": "../images/bouquets/passion.png",
+            "name": "The Firecracker",
+            "image": "../images/bouquets/the-firecracker.png",
             "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
             "price": 34
         },
         {
             "itemNum": 3,
-            "name": "different1",
-            "image": "../images/bouquets/passion.png",
-            "meaning": "1 The bold flowers within this bouquet show love, passion, and devotion.",
+            "name": "Refresh",
+            "image": "../images/bouquets/refresh.png",
+            "meaning": "The flowers in this bouquet show love and appreciation.",
             "price": 34
         },
         {
             "itemNum": 4,
-            "name": "different2",
-            "image": "../images/bouquets/passion.png",
-            "meaning": "2 The bold flowers within this bouquet show love, passion, and devotion.",
+            "name": "Pearl",
+            "image": "../images/bouquets/pearl.png",
+            "meaning": "This bouquet shows pure, familial love.",
+            "price": 34
+        },
+        {
+            "itemNum": 5,
+            "name": "Momenta",
+            "image": "../images/bouquets/momenta.png",
+            "meaning": "These flowers show love and devotion.",
+            "price": 34
+        },
+        {
+            "itemNum": 6,
+            "name": "Carnelian",
+            "image": "../images/bouquets/carnelian.png",
+            "meaning": "This bouquet sends the message of happiness.",
+            "price": 34
+        },
+        {
+            "itemNum": 7,
+            "name": "Cafe Azul",
+            "image": "../images/bouquets/cafe-azul.png",
+            "meaning": "These flowers show warmth and thinking of someone.",
+            "price": 34
+        },
+        {
+            "itemNum": 8,
+            "name": "The Prism",
+            "image": "../images/bouquets/the-prism.png",
+            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
             "price": 34
         }
     ];
@@ -192,14 +222,17 @@ h1 {letter-spacing: 6px}
                     }
                 }
 
+                //"+products[i].itemNum+");>-</button>"+
+
                 //add info to cart table
-                $("#row" + itemNum).append("<td class='center-text' style='width:25%'><img class='resize-cart-img' src="+img+"/><br>"+name+"<br><input type='checkbox'>Include meaning</td>");
+                $("#row" + itemNum).append("<td class='center-text' style='width:25%; padding-bottom:15px;'><img class='resize-cart-img' style='border-radius:10px;' src="+img+"/><br>"+name+"<br><input type='checkbox'> Include meaning</td>");
                 $("#row" + itemNum).append("<td class='center-text' style='width:25%'>$"+price+"</td>");
-                $("#row" + itemNum).append("<td class='center-text qty-text' style='width:25%' id='row"+itemNum+"qty'>"+bouquetQty[itemNum]+"</td>");
+                $("#row" + itemNum).append("<td class='center-text qty-text' style='width:25%' id='row"+itemNum+"qty'>"+sessionStorage.getItem('qtyOf'+itemNum)+"</td>");                //$("#row" + itemNum).append("<td class='center-text qty-text' style='width:25%' id='row"+itemNum+"qty'><button onclick=decreaseDefaultQty("+products[i].itemNum+");>-</button>"+sessionStorage.getItem("qtyOf"+itemNum)+"</td>");
+
                 $("#row" + itemNum).append("<td class='center-text' style='width:25%' id='row"+itemNum+"price'>$"+price+"</td>");
             } else { //if bouqet item is already in cart
 
-                qty = sessionStorage.getItem("qtyOf"+itemNum);
+                qty = sessionStorage.getItem("qtyOf"+itemNum); 
                 qty++;
                 sessionStorage.setItem("qtyOf"+itemNum, qty);
 
@@ -242,23 +275,23 @@ h1 {letter-spacing: 6px}
             // If only one of this item
             if(!$('#row'+itemId).length){
                 sessionStorage.setItem("qty"+itemId, 1);
-                $("#products").append("<tr id='row" + itemId + "'></tr>");
+                $("#products").append("<tr style='padding-bottom:15px;' id='row" + itemId + "'></tr>");
                 console.log("itemId:" +itemId);
 
                 if (flower2 == 0) {
                     flower1Img = flowers[flower1-1].image[0];
-                    $("#row" + itemId).append("<td class='center-text' style='width:25%'><div class='byb-img-parent center resize-cart-custom'><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower1Img+"'/><img id='byb-vase' class='image1 resize-cart-custom' src='../images/flowers/vase.png'/><br>Custom Bouquet<br><input type='checkbox'>Include meaning</div></td>");
+                    $("#row" + itemId).append("<td class='center-text' style='width:25%; padding-bottom:15px;'><div class='byb-img-parent center resize-cart-custom'><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower1Img+"'/><img id='byb-vase' class='image1 resize-cart-custom' src='../images/flowers/vase.png'/><br>Custom Bouquet<br><input type='checkbox'> Include meaning</div></td>");
 
                 } else if (flower3 == 0) {
                     flower1Img = flowers[flower1-1].image[0];
                     flower2Img = flowers[flower2-1].image[1];
-                    $("#row" + itemId).append("<td class='center-text' style='width:25%'><div class='byb-img-parent center resize-cart-custom'><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower1Img+"'/><img id='byb-flower-2' class='image2 resize-cart-custom' src='"+flower2Img+"'/><img id='byb-vase' class='image1 resize-cart-custom' src='../images/flowers/vase.png'/><br>Custom Bouquet<br><input type='checkbox'>Include meaning</div></td>");
+                    $("#row" + itemId).append("<td class='center-text' style='width:25%; padding-bottom:15px;'><div class='byb-img-parent center resize-cart-custom'><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower1Img+"'/><img id='byb-flower-2' class='image2 resize-cart-custom' src='"+flower2Img+"'/><img id='byb-vase' class='image1 resize-cart-custom' src='../images/flowers/vase.png'/><br>Custom Bouquet<br><input type='checkbox'> Include meaning</div></td>");
 
                 } else {
                     flower1Img = flowers[flower1-1].image[0];
                     flower2Img = flowers[flower2-1].image[1];
                     flower3Img = flowers[flower3-1].image[2];
-                    $("#row" + itemId).append("<td class='center-text' style='width:25%'><div class='byb-img-parent center resize-cart-custom'><img id='byb-flower-3' class='image2 resize-cart-custom' src='"+flower3Img+"'/><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower1Img+"'/><img id='byb-flower-2' class='image2 resize-cart-custom' src='"+flower2Img+"'/><img id='byb-vase' class='image1 resize-cart-custom' src='../images/flowers/vase.png'/><br>Custom Bouquet<br><input type='checkbox'>Include meaning</div></td>");
+                    $("#row" + itemId).append("<td class='center-text' style='width:25%; padding-bottom:15px;'><div class='byb-img-parent center resize-cart-custom'><img id='byb-flower-3' class='image2 resize-cart-custom' src='"+flower3Img+"'/><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower1Img+"'/><img id='byb-flower-2' class='image2 resize-cart-custom' src='"+flower2Img+"'/><img id='byb-vase' class='image1 resize-cart-custom' src='../images/flowers/vase.png'/><br>Custom Bouquet<br><input type='checkbox'> Include meaning</div></td>");
                 }
 
 

@@ -34,30 +34,58 @@ h1 {letter-spacing: 6px}
           var products = [
         {
             "itemNum": 1,
-            "name": "Suncrisp Bouquet",
-            "image": "../images/bouquets/suncrisp.png",
+            "name": "Optimist",
+            "image": "../images/bouquets/optimist.png",
             "meaning": "This bouquet is perfect for Mother's Day. The flowers within it show love and adoraction.",
             "price": 34
         },
         {
             "itemNum": 2,
-            "name": "Passion Bouquet",
-            "image": "../images/bouquets/passion.png",
+            "name": "The Firecracker",
+            "image": "../images/bouquets/the-firecracker.png",
             "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
             "price": 34
         },
         {
             "itemNum": 3,
-            "name": "different1",
-            "image": "../images/bouquets/passion.png",
-            "meaning": "1 The bold flowers within this bouquet show love, passion, and devotion.",
+            "name": "Refresh",
+            "image": "../images/bouquets/refresh.png",
+            "meaning": "The flowers in this bouquet show love and appreciation.",
             "price": 34
         },
         {
             "itemNum": 4,
-            "name": "different2",
-            "image": "../images/bouquets/passion.png",
-            "meaning": "2 The bold flowers within this bouquet show love, passion, and devotion.",
+            "name": "Pearl",
+            "image": "../images/bouquets/pearl.png",
+            "meaning": "This bouquet shows pure, familial love.",
+            "price": 34
+        },
+        {
+            "itemNum": 5,
+            "name": "Momenta",
+            "image": "../images/bouquets/momenta.png",
+            "meaning": "These flowers show love and devotion.",
+            "price": 34
+        },
+        {
+            "itemNum": 6,
+            "name": "Carnelian",
+            "image": "../images/bouquets/carnelian.png",
+            "meaning": "This bouquet sends the message of happiness.",
+            "price": 34
+        },
+        {
+            "itemNum": 7,
+            "name": "Cafe Azul",
+            "image": "../images/bouquets/cafe-azul.png",
+            "meaning": "These flowers show warmth and thinking of someone.",
+            "price": 34
+        },
+        {
+            "itemNum": 8,
+            "name": "The Prism",
+            "image": "../images/bouquets/the-prism.png",
+            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
             "price": 34
         }
     ];
@@ -71,12 +99,14 @@ h1 {letter-spacing: 6px}
             }
             // Get all bouquets (no search)
             if (searchInput == null || searchInput.length == 0) {
-                $("#row" + j).append("<td><div class='shop-item'><div class='quick-add-btn-container'><button class='quick-add-btn' onclick='addToCart("+products[i].itemNum+");'>test</button></div><img onclick='loadItemInfo("+products[i].itemNum+");' src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + "</div> </br><div>$" + products[i].price + "</div></td>");
+                //$("#row" + j).append("<td><div class='shop-item'><div class='quick-add-btn-container'><button class='quick-add-btn' onclick='addToCart("+products[i].itemNum+");'></button></div><img onclick='loadItemInfo("+products[i].itemNum+");' src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + "</div> </br><div>$" + products[i].price + "</div></td>");
+                //$("#row" + j).append("<td><div class='shop-item-image shop-item'><div class='quick-add-btn-container'><img class='quick-add-btn' src='../images/quick-add-btn.png' onclick='addToCart("+products[i].itemNum+");'/></div><div class='shop-item-parent'><img onclick='loadItemInfo("+products[i].itemNum+");' src='" + products[i].image + "' style='width:200px;height:270px; border-radius:20px;'></div></div><div class='text-center'>" + products[i].name + "</div><div>$" + products[i].price + "</div></td>");
+                $("#row" + j).append("<td><div class='shop-item-image shop-item'><div class='quick-add-btn-container'><img class='quick-add-btn' src='../images/quick-add-btn.png' onclick='addToCart("+products[i].itemNum+");'/></div><div class='shop-item-parent'><img onclick='loadItemInfo("+products[i].itemNum+");' src='" + products[i].image + "' style='width:200px;height:270px; border-radius:20px;'></div></div><div class='text-center shop-item-title'>" + products[i].name + "</div></td>");
 
             } else {
                 // Get bouquets based on search 
                 if ((products[i].meaning).toLowerCase().includes(searchInput) || (products[i].name).toLowerCase().includes(searchInput)){
-                    $("#row" + j).append("<td><div class='shop-item'><div class='quick-add-btn-container'><button class='quick-add-btn' onclick='addToCart("+products[i].itemNum+");'>test</button></div><img onclick='loadItemInfo("+products[i].itemNum+");' src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + "</div> </br><div>$" + products[i].price + "</div></td>");
+                    $("#row" + j).append("<td><div class='shop-item-image shop-item'><div class='quick-add-btn-container'><img class='quick-add-btn' src='../images/quick-add-btn.png' onclick='addToCart("+products[i].itemNum+");'/></div><div class='shop-item-parent'><img onclick='loadItemInfo("+products[i].itemNum+");' src='" + products[i].image + "' style='width:200px;height:270px; border-radius:20px;'></div></div><div class='text-center'>" + products[i].name + "</div></td>");
                 }
             }
         }
@@ -85,7 +115,7 @@ h1 {letter-spacing: 6px}
 </head>
 
 <body>
-<!-- !PAGE CONTENT! -->
+<!-- PAGE CONTENT! -->
 <div class="w3-content" style="max-width:1500px">
 
 <!-- Header -->
@@ -156,6 +186,7 @@ h1 {letter-spacing: 6px}
   <i class="fa fa-twitter w3-hover-opacity"></i>
   <i class="fa fa-linkedin w3-hover-opacity"></i>
   <p>Follow us on social media</p>
+  <p>Bouquet images from Urbanstems.com</p>
 </footer>
 
 <script>
