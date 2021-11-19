@@ -301,6 +301,14 @@ function addCustomBouquetToCart() {
 
     console.log(typeof sessionStorage.getItem("customItem"+ctr));
 
+    if (sessionStorage.getItem("cartTotal") == null) {
+        sessionStorage.setItem("cartTotal", 0);
+    }
+    cartTotal = parseInt(sessionStorage.getItem("cartTotal"));
+    cartTotal += 45;
+    sessionStorage.setItem("cartTotal", cartTotal);
+    console.log(sessionStorage.getItem("cartTotal"));
+
 
     sessionStorage.setItem("bybFlowerCtr", 0);
     addToCartSuccess();

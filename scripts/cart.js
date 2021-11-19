@@ -133,6 +133,7 @@ var products = [
 ];
     
 
+
 function decreaseDefaultQty(defaultId) {
     console.log("qtyOf"+defaultId + ": " +sessionStorage.getItem("qtyOf"+defaultId));
     qty = sessionStorage.getItem("qtyOf"+defaultId);
@@ -144,5 +145,12 @@ function decreaseDefaultQty(defaultId) {
 }
 
 function decreaseCustomQty(customId) {
+
+}
+
+
+function getMeaning(meaning) {
+    console.log("in here");
+    swal("Bouquet Meaning", meaning);
 
 }

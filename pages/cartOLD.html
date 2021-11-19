@@ -15,10 +15,8 @@ h1 {letter-spacing: 6px}
 
 <head>
     <link rel="stylesheet" type="text/css" href="../styles/styles.css"/>
-    <link rel="stylesheet" type="text/css" href="../styles/cart.css"/>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="../scripts/app.js"></script>
     <script type="text/javascript" src="../scripts/loadHeader.js"></script>
     <script type="text/javascript" src="../scripts/cart.js"></script>
@@ -53,7 +51,7 @@ h1 {letter-spacing: 6px}
             "itemNum": 1,
             "name": "Optimist",
             "image": "../images/bouquets/optimist.png",
-            "meaning": "This bouquet is perfect for Mother's Day. The flowers within it show love and adoration.",
+            "meaning": "This bouquet is perfect for Mother's Day. The flowers within it show love and adoraction.",
             "price": 34
         },
         {
@@ -185,8 +183,6 @@ h1 {letter-spacing: 6px}
         var i = 1;
         var j = 0;
 
-        var cartTotal = 0;
-
         /* Initialize quantity array to 0; assume 10 products for now */
         var k = 0;
         const bouquetQty = [];
@@ -200,13 +196,9 @@ h1 {letter-spacing: 6px}
 
         //go through all default bouqets in cart
         while(i<=defaultBouquetCtr) {
-            if (sessionStorage.getItem("cartTotal") == null) {
-                sessionStorage.setItem("cartTotal", 0);
-            }
-
             var img;
             var name;
-            var meaning;
+            var message;
             var price;
 
             //itemNum or id of bouquet added to cart
@@ -227,14 +219,12 @@ h1 {letter-spacing: 6px}
                         img = products[j].image;
                         name = products[j].name;
                         price = products[j].price;
-                        meaning = products[j].meaning;
                     }
                 }
 
                 //"+products[i].itemNum+");>-</button>"+
 
                 //add info to cart table
-                //$("#row" + itemNum).append("<td class='center-text' style='width:25%; padding-bottom:15px;'><img class='resize-cart-img' style='border-radius:10px;' src="+img+"/><br>"+name+"<br><input type='checkbox'> Include <a onclick='"+getMeaning(products[i].meaning)+"' href='' >meaning</a></td>");
                 $("#row" + itemNum).append("<td class='center-text' style='width:25%; padding-bottom:15px;'><img class='resize-cart-img' style='border-radius:10px;' src="+img+"/><br>"+name+"<br><input type='checkbox'> Include meaning</td>");
                 $("#row" + itemNum).append("<td class='center-text' style='width:25%'>$"+price+"</td>");
                 $("#row" + itemNum).append("<td class='center-text qty-text' style='width:25%' id='row"+itemNum+"qty'>"+sessionStorage.getItem('qtyOf'+itemNum)+"</td>");                //$("#row" + itemNum).append("<td class='center-text qty-text' style='width:25%' id='row"+itemNum+"qty'><button onclick=decreaseDefaultQty("+products[i].itemNum+");>-</button>"+sessionStorage.getItem("qtyOf"+itemNum)+"</td>");
@@ -258,8 +248,6 @@ h1 {letter-spacing: 6px}
                 console.log("in here");
             }
             i++;
-
-             
         }
 
         // Go through all custom bouquets
@@ -324,58 +312,53 @@ h1 {letter-spacing: 6px}
 
             console.log("item"+itemId+"qty: " + sessionStorage.getItem("qty"+itemId));
 
+            
+        
             l++;
         }
-        $("#cartTotal").html("$"+sessionStorage.getItem("cartTotal"));
-    });
+        });
 
 </script>
-<style>
-    .col-container {
-        display: table;
-        width: 100%;
-    }
-    .col1 {
-        display: table-cell;
-        padding: 16px;
-    }
-    .col2 {
-        display: table-cell;
-        padding: 16px;
-        width: 28%;
-    }
-</style>
 
-<div class="col-container">
-    <div class="col1" style="background:white">
-      <table class="table table-center">
-        <tbody id="products">
-            <tr class="center-text table-headings">
-                <td>PRODUCT</td>
-                <td>PRICE</td>
-                <td>QTY</td>
-                <td>TOTAL</td>
-            </tr>
-        </tbody>
-    </table>
-    </div>
-  
-    <div class="col2" style="background:#3B552E">
-      <div class="col2-content sticky">
-        <h3 class="title">Cart</h3>
-        
-        <div style="color:white; padding-top: 30px;">
-            <p style="display:inline-block; width:230px">CART TOTAL</p> &nbsp;&nbsp;<p style="display:inline-block; font-size: 20px; font-weight: bold;" id="cartTotal"></p>
+<!-- Table -->
+<!--<div class="table-parent center center-table">
+    <div class="inner center-table"> -->
+    <div style="width: 100%;">
+        <div class="cart-table-parent" style="width: 70%; float: left; background: white;"> 
+            <table class="table table-center">
+                <tbody id="products">
+                    <tr class="center-text table-headings">
+                        <td>PRODUCT</td>
+                        <td>PRICE</td>
+                        <td>QTY</td>
+                        <td>TOTAL</td>
+                    </tr>
+                    <!--
+                    <tr id="BYBtestRow">
+                        <td class='center-text' style='width:25%'>
+                            <div class="byb-img-parent center resize-cart-custom">
+                                <img id="byb-flower-3" class="image2 resize-cart-custom"/>
+                                <img id="byb-flower-1" class="image2 resize-cart-custom" src="../images/flowers/rose-orange-1.png"/>
+                                <img id="byb-flower-2" class="image2 resize-cart-custom" src="../images/flowers/carnation-pink-2.png"/>
+                                <img id="byb-vase" class="image1 resize-cart-custom" src="../images/flowers/vase.png"/>
+                            </div>
+                        </td>
+                    </tr>
+                    -->
+                </tbody>
+            </table>
         </div>
-
-        <div style="text-align: center; padding-top: 60px;">
-            <button id="add-to-cart-btn" class="checkout-btn"  onclick="location.href = 'checkout.html'"><img class="resize-card" src="../images/icons/credit-card-icon.png"/>CHECKOUT</button>
+        <div style="margin-left: 70%; background: #3B552E;"> 
+            <div style="height: 100%;">
+              right
+            </div>
+            <div style="margin-top: 100%;">
+                right
+              </div>
         </div>
-        
-      </div>
     </div>
-  
-  </div>
+    <!--</div>      
+</div> -->
 
 <!-- End Page Content -->
 </div>

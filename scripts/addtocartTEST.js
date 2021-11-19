@@ -1,4 +1,4 @@
-function addToCart(itemNum) {
+function addToCart(itemNum, price) {
     //alert("Clicked! " + itemNum + document.cookie);
 
     defaultBouquetCtr = parseInt(sessionStorage.getItem("defaultBouquetCtr")) + 1;
@@ -7,6 +7,14 @@ function addToCart(itemNum) {
     cartItemNum = "defaultBouquet" + defaultBouquetCtr;
 
     sessionStorage.setItem(cartItemNum, itemNum);
+
+    if (sessionStorage.getItem("cartTotal") == null) {
+        sessionStorage.setItem("cartTotal", 0);
+    }
+    cartTotal = parseInt(sessionStorage.getItem("cartTotal"));
+    cartTotal += parseInt(price);
+    sessionStorage.setItem("cartTotal", cartTotal);
+    console.log(sessionStorage.getItem("cartTotal"));
 
     //location.href = window.location.href;
 
