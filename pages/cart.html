@@ -22,6 +22,8 @@ h1 {letter-spacing: 6px}
     <script type="text/javascript" src="../scripts/app.js"></script>
     <script type="text/javascript" src="../scripts/loadHeader.js"></script>
     <script type="text/javascript" src="../scripts/cart.js"></script>
+    <script type="text/javascript" src="../scripts/removeItem.js"></script>
+    <script type="text/javascript" src="../scripts/increaseItem.js"></script>
     
 </head>
 
@@ -207,7 +209,7 @@ h1 {letter-spacing: 6px}
             var img;
             var name;
             var meaning;
-            var price;
+            var price = 34;
 
             //itemNum or id of bouquet added to cart
             itemNum = parseInt(sessionStorage.getItem("defaultBouquet"+i));
@@ -237,7 +239,16 @@ h1 {letter-spacing: 6px}
                 //$("#row" + itemNum).append("<td class='center-text' style='width:25%; padding-bottom:15px;'><img class='resize-cart-img' style='border-radius:10px;' src="+img+"/><br>"+name+"<br><input type='checkbox'> Include <a onclick='"+getMeaning(products[i].meaning)+"' href='' >meaning</a></td>");
                 $("#row" + itemNum).append("<td class='center-text' style='width:25%; padding-bottom:15px;'><img class='resize-cart-img' style='border-radius:10px;' src="+img+"/><br>"+name+"<br><input type='checkbox'> Include meaning</td>");
                 $("#row" + itemNum).append("<td class='center-text' style='width:25%'>$"+price+"</td>");
-                $("#row" + itemNum).append("<td class='center-text qty-text' style='width:25%' id='row"+itemNum+"qty'>"+sessionStorage.getItem('qtyOf'+itemNum)+"</td>");                //$("#row" + itemNum).append("<td class='center-text qty-text' style='width:25%' id='row"+itemNum+"qty'><button onclick=decreaseDefaultQty("+products[i].itemNum+");>-</button>"+sessionStorage.getItem("qtyOf"+itemNum)+"</td>");
+                
+                //test
+                $("#row" + itemNum).append("<td class='center-text qty-text' style='width:25%' id='row"+itemNum+"qty'><button class='qty-btn' onclick=removeDefaultBouquet("+itemNum+");>-</button>"+sessionStorage.getItem('qtyOf'+itemNum)+"<button class='qty-btn' onclick=increaseDefaultBouquet("+itemNum+");>+</button></td>");                
+
+
+                //working
+               // $("#row" + itemNum).append("<td class='center-text qty-text' style='width:25%' id='row"+itemNum+"qty'>"+sessionStorage.getItem('qtyOf'+itemNum)+"</td>");                
+                
+                //not working
+                //$("#row" + itemNum).append("<td class='center-text qty-text' style='width:25%' id='row"+itemNum+"qty'><button onclick=removeDefaultBouquet("+products[i].itemNum+");>-</button>"+sessionStorage.getItem("qtyOf"+itemNum)+"</td>");
 
                 $("#row" + itemNum).append("<td class='center-text' style='width:25%' id='row"+itemNum+"price'>$"+price+"</td>");
             } else { //if bouqet item is already in cart
@@ -246,14 +257,18 @@ h1 {letter-spacing: 6px}
                 qty++;
                 sessionStorage.setItem("qtyOf"+itemNum, qty);
 
+                /*cartTotal = sessionStorage.getItem("cartTotal");
+                cartTotal = cartTotal + price;
+                sessionStorage.setItem("cartTotal", cartTotal); */
+
                 /* might want to make item#qty a session variable for when users can add and remove items */
 
                 bouquetQty[itemNum]++;
                 console.log(bouquetQty);
 
                 // Change quantity & price when >1 of same item
-                $("#row" + itemNum + "qty").html(sessionStorage.getItem("qtyOf"+itemNum));   
-                $("#row" + itemNum + "price").html("$"+price * sessionStorage.getItem("qtyOf"+itemNum));  
+                $("#row" + itemNum + "qty").html("<button class='qty-btn' onclick=removeDefaultBouquet("+itemNum+");>-</button>"+sessionStorage.getItem("qtyOf"+itemNum)+"<button class='qty-btn' onclick=increaseDefaultBouquet("+itemNum+");>+</button>");   
+                $("#row" + itemNum + "price").html("$"+34 * sessionStorage.getItem("qtyOf"+itemNum));  
 
                 console.log("in here");
             }
@@ -364,11 +379,11 @@ h1 {letter-spacing: 6px}
       <div class="col2-content sticky">
         <h3 class="title">Cart</h3>
         
-        <div style="color:white; padding-top: 30px;">
+        <div style="color:white; padding-top: 10px;">
             <p style="display:inline-block; width:230px">CART TOTAL</p> &nbsp;&nbsp;<p style="display:inline-block; font-size: 20px; font-weight: bold;" id="cartTotal"></p>
         </div>
 
-        <div style="text-align: center; padding-top: 60px;">
+        <div style="text-align: center; padding-top: 30px;">
             <button id="add-to-cart-btn" class="checkout-btn"  onclick="location.href = 'checkout.html'"><img class="resize-card" src="../images/icons/credit-card-icon.png"/>CHECKOUT</button>
         </div>
         

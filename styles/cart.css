@@ -42,3 +42,22 @@
     margin-right: 40px;
 }
 
+.qty-btn {
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-radius: 50%;
+    width: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.qty-btn:hover {
+    background: #e0e0e0;
+} 
+
+.confirm-btn-color {
+    background-color: #3B552E;
+}
+.confirm-btn-color:hover {
+    background-color: #85ad71;
+}
