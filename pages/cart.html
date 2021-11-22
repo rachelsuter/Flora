@@ -323,7 +323,8 @@ h1 {letter-spacing: 6px}
 
 
                 $("#row" + itemId).append("<td class='center-text' style='width:25%'>$45</td>");
-                $("#row" + itemId).append("<td id='row"+itemId+"qty' class='center-text' style='width:25%'>1</td>");
+                $("#row" + itemId).append("<td id='row"+itemId+"qty' class='center-text qty-text' style='width:25%'>"+sessionStorage.getItem("qty"+itemId)+"</td>");
+                //$("#row" + itemId).append("<td id='row"+itemId+"qty' class='center-text' style='width:25%'><button class='qty-btn' onclick=removeCustomBouquet("+itemId+");>-</button>"+sessionStorage.getItem("qty"+itemId)+"</td>");
                 $("#row" + itemId).append("<td id='row"+itemId+"total' class='center-text' style='width:25%'>$"+total+"</td>");
             } else { // If same item is already in the cart
                 qty = sessionStorage.getItem("qty"+itemId);

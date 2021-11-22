@@ -46,23 +46,72 @@ h1 {letter-spacing: 6px}
     </div>
 </header>
 
-<div class="wrapper" style="text-align:center;">
-    <h1 class="title2">FIND YOUR FLOWERS</h1>
-    <h2 class="title">Which bouquet is right for you?</h2>
-
-    <div class='byb-img-parent center resize-cart-custom'>
-        <img id='byb-flower-3' class='image2 resize-cart-custom' src='../images/flowers/tulip-purple-3.png'/>
-        <img id='byb-flower-1' class='image2 resize-cart-custom' src='../images/flowers/rose-lavender-1.png'/>
-        <img id='byb-flower-2' class='image2 resize-cart-custom' src='../images/flowers/carnation-purple-2.png'/>
-        <img id='byb-vase' class='image1 resize-cart-custom' src='../images/flowers/vase.png'/>
+<div class="column-container">
+    <div class="col1">
+        <h1 class="side-title">
+            FIND YOUR FLOWERS
+        </h1>
+        <div class="progress">
+            <div class="question-num">
+                QUESTION 2 OF 3
+            </div>
+            <br>
+            <img class="pie" src="../images/pie2.png"/>
+        </div>
     </div>
+    <div class="col2">
+        <h3 class="question">
+                Who is this bouquet for?
+        </h3>
+        <!-- Answer options and images -->
+        <div class="answer-options-wrapper options-4">
+            <a href="quiz-q3.html" id="occasion" value="date">
+                <div class="option-wrapper">
+                    <div class="image-wrapper">
+                        <img class="option-image" src="">
+                    </div>
+                    <div class="subtitle option-text">
+                        Significant Other
+                    </div>
+                </div>
+            </a>
+            <a href="quiz-q3.html" id="occasion" value="birthday">
+                <div class="option-wrapper">
+                    <div class="image-wrapper">
+                        <img class="option-image" src="">
+                    </div>
+                    <div class="subtitle option-text">
+                        Family Member
+                    </div>
+                </div>
+            </a>
+            <a href="quiz-q3.html" id="occasion" value="mother">
+                <div class="option-wrapper">
+                    <div class="image-wrapper">
+                        <img class="option-image" src="">
+                    </div>
+                    <div class="subtitle option-text">
+                        Friend
+                    </div>
+                </div>
+            </a>
+            <a href="quiz-q3.html" id="occasion" value="other">
+                <div class="option-wrapper">
+                    <div class="image-wrapper">
+                        <img class="option-image" src="">
+                    </div>
+                    <div class="subtitle option-text">
+                        Acquaintance
+                    </div>
+                </div>
+            </a>
+        </div>
+        <button class="skip-btn" onclick="location.href='quiz-q2.html'">SKIP ></button>
 
-    <div class="description">
-        Deciding whether or not to buy a bouqet? Before making your purchase, go through this three question quiz. You'll get our recommendation in the results so you can feel confident about your bouquet decision.
+        <!-- End of answer options -->
     </div>
-    <br>
-    <button class="start-btn" onclick="location.href='quiz-q1.html'">START QUIZ</button>
 </div>
+
 <!-- End Page Content -->
 </div>
 

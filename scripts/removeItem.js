@@ -56,3 +56,43 @@ function confirmDefaultRemove(itemNum){
     }
     location.reload();
 }
+
+function removeCustomBouquet(itemNum) {
+    confirmCustomRemove(itemNum);
+}
+
+function confirmCustomRemove(itemNum) {
+    console.log("itemNum " + itemNum);
+    
+    customBouquetCtr = parseInt(sessionStorage.getItem("customBouquetInCartCtr"));    
+    var i = 0;
+    var removed = 0;
+    while (i <= customBouquetCtr) {
+        console.log(i + sessionStorage.getItem("customItem"+i));
+
+        if(sessionStorage.getItem("customItem"+i) == itemNum) {
+            console.log("in here");
+            qty = sessionStorage.getItem("qty"+itemNum);
+            qty--;
+            sessionStorage.setItem("qty"+itemNum, qty);
+
+            if (removed == 0) {
+
+                cartTotal = sessionStorage.getItem("cartTotal");
+                cartTotal = cartTotal - 45;
+                sessionStorage.setItem("cartTotal", cartTotal);
+
+                console.log("removing defaultBouquet"+i);
+                sessionStorage.removeItem("customItem"+i);
+
+                removed = 1;
+            } 
+        }
+        i++;
+    }
+    if (customBouquetCtr == 0) {
+        customBouquetCtr--;
+        sessionStorage.setItem("customBouquetInCartCtr",customBouquetCtr);
+    }
+    location.reload();
+}

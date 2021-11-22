@@ -1,0 +1,143 @@
+/* START PAGE */
+.wrapper {
+    margin-left: 15%;
+    margin-right: 15%;
+    color:#3B552E;
+}
+.title {
+    font-family: "Raleway";
+    font-size: 40px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+.title2 {
+    font-family: "Raleway";
+    font-size: 24px;
+}
+
+.description {
+    padding-top: 40px;
+    font-size: 18px;
+}
+
+.start-btn {
+    cursor: pointer;
+    color: white;
+
+    background: #3B552E;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 80px;
+    padding-right: 80px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    transition: 0.5s ease-in-out;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.start-btn:hover {
+    box-shadow: 0px 0px 0px 2.5px #3B552E, 0px 0px 0px 5px #fff, 0px 0px 0px 10px #3B552E, 0px 0px 0px 10.5px #fff;
+    /*background: white;
+    color: #3B552E;*/
+    transition: 0.5s ease-in-out;
+}
+
+/* QUESTIONS PAGES */
+.column-container {
+    display: table;
+    width: 100%;
+}
+.col1 {
+    display: table-cell;
+    padding: 16px;
+    width: 28%;
+    background:#3B552E;
+   
+}
+.col2 {
+    display: table-cell;
+    padding: 16px;
+    text-align: center;
+}
+
+/* LEFT */
+.side-title {
+    color: white;
+    font-family: "Raleway";
+    font-size: 36px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.progress {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 160px;
+}
+.question-num {
+    color: white;
+    margin-bottom: 20px;
+}
+.pie {
+    width: 130px;
+}
+
+
+/* RIGHT */
+.question {
+    font-family: "Raleway";
+    font-weight:bolder;
+    font-size: 24px;
+    color:#3B552E;
+}
+
+.answer-options-wrapper{
+    padding-top: 150px;
+    padding-bottom: 100px;
+    margin: 0 auto;
+    
+    display: grid;
+    
+    border: 0px solid blue;
+    text-align: center;
+}
+
+.options-4{
+    width: 70%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+a{
+    text-decoration: none !important; 
+}
+.option-text {
+    color:#3B552E;
+    text-decoration: none !important;
+}
+
+.skip-btn {
+    cursor: pointer;
+    color: #3B552E;
+
+    background: white;
+    border: 1px solid #3B552E;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 5px;
+
+    font-size: 16px;
+    transition: 0.5s ease-in-out;
+    margin-bottom: 40px;
+    margin-top: 20px;
+
+}
+
+.skip-btn:hover {
+    box-shadow: 0px 0px 0px 2.5px #3B552E, 0px 0px 0px 5px #fff, 0px 0px 0px 10px #3B552E, 0px 0px 0px 10.5px #fff;
+    background: #3B552E;
+    color: white;
+    transition: 0.5s ease-in-out;
+}
