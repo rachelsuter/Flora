@@ -19,6 +19,7 @@ h1 {letter-spacing: 6px}
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="../scripts/app.js"></script>
     <script type="text/javascript" src="../scripts/loadHeader.js"></script>
+    <script type="text/javascript" src="../scripts/setQ3.js"></script>
     
 </head>
 
@@ -67,11 +68,30 @@ h1 {letter-spacing: 6px}
             (CHOOSE UP TO 3)
         </div>
        
-        <!-- Answer options and images -->
-        <div class="answer-options-wrapper options-4">
-            
+         <!-- Tags for mood options -->
+         <div class="tags-area-wrapper">
+                        
+            <div class="tag-wrapper">
+                <button class="tag-test" id="1" onclick="setColor('1')">RESPECT</button>
+                <button class="tag-test" id="2" onclick="setColor('2')">THANK YOU</button>
+                <button class="tag-test" id="3" onclick="setColor('3')">CONGRATS</button>
+                <button class="tag-test" id="4" onclick="setColor('4')">PROUD</button>
+                <button class="tag-test" id="5" onclick="setColor('5')">HAPPY</button>
+                <button class="tag-test" id="6" onclick="setColor('6')">SORRY</button>
+            </div>
+            <div class="tag-wrapper">
+                
+                <button class="tag-test" id="7" onclick="setColor('7')">ROMANTIC</button>
+                <button class="tag-test" id="8" onclick="setColor('8')">PURE</button>
+                <button class="tag-test" id="9" onclick="setColor('9')">PASSIONATE</button>
+                <button class="tag-test" id="10" onclick="setColor('10')">THOUGHTFUL</button>
+                <button class="tag-test" id="11" onclick="setColor('11')">DEVOTED</button>
+            </div>
         </div>
-        <button class="skip-btn" onclick="location.href='quiz-result.html'">SUBMIT</button>
+
+        <button class="quiz-submit-btn" onclick="location.href='javascript:saveMood()'">SUBMIT</button>
+        </div>
+        
 
         <!-- End of answer options -->
     </div>
