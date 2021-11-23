@@ -224,3 +224,15 @@ a{
     color: white;
     transition: 0.5s ease-in-out;
 }
+
+.col {
+    float: left;
+    width: 40%;
+  }
+  
+  /* Clear floats after the columns */
+  .results-content-wrapper:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
