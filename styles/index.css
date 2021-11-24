@@ -1,0 +1,66 @@
+.margins {
+    margin: 30px;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+.row1 {
+    /*background: red;*/
+    background-image: url("../images/bouquets/the-firecracker.png");
+    background-size: contain;
+    margin-top: 40px;
+    height: 350px;
+    border-radius: 15px;
+}
+
+.row2 {
+    display: flex;
+  }
+  
+  .col1 {
+    flex: 50%;
+    /*background:#3B552E;*/
+    text-align: center;
+    margin: 20px;
+    height: 350px;
+    border-radius: 15px;
+    background-image: url("../images/bouquets/the-prism.png");
+    background-size: contain;
+  }
+  .col2 {
+    flex: 50%;
+    background: gray;
+    text-align: center;
+    margin: 20px;
+    height: 350px;
+    border-radius: 15px;
+    background-image: url("../images/flowers/carnation-pink-1.png");
+    background-size: contain;
+  }
+
+.row3 {
+    background: gray;
+    text-align: center;
+    height: 350px;
+    border-radius: 15px;
+    background-image: url("../images/flowers/rose-lavender-1.png");
+    background-size: contain;
+
+}
+
+.row1:hover, .col1:hover, .col2:hover, .row3:hover {
+    cursor: pointer;
+    -webkit-filter: brightness(80%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.home-titles {
+    font-family: "Raleway";
+    color:#3B552E;
+    position: absolute;
+    bottom: 200px;
+    display: inline-block;
+}
