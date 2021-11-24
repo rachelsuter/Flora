@@ -228,6 +228,7 @@ a{
 .col {
     float: left;
     width: 40%;
+    text-align: left;
   }
   
   /* Clear floats after the columns */

@@ -20,6 +20,8 @@ h1 {letter-spacing: 6px}
     <script type="text/javascript" src="../scripts/app.js"></script>
     <script type="text/javascript" src="../scripts/loadHeader.js"></script>
     <script type="text/javascript" src="../scripts/getQuizResult.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     
 </head>
 
@@ -64,14 +66,15 @@ h1 {letter-spacing: 6px}
         <div class="col">
             <h3>Meaning</h3>
             <div id="quiz-meaning-1"></div>
+            <br>
             <div id="quiz-meaning-2"></div>
-            <div id="quiz-meaning-2"></div>
+            <br>
+            <div id="quiz-meaning-3"></div>
+            <br>
+            <button class="start-btn" onclick="javascript:quizAddToCart()">ADD TO CART</button>
         </div>
     </div>  
 
-
-    <br>
-    <button class="start-btn" onclick="location.href='quiz-q1.html'">START QUIZ</button>
 </div>
 <!-- End Page Content -->
 </div>

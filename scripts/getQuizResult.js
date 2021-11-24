@@ -152,11 +152,49 @@ $(document).ready(function(){
     }
     console.log(topThree);
 
+    var bouquetIdString = String(flowers[topThree[0]].flowerId) + String(flowers[topThree[1]].flowerId) + String(flowers[topThree[2]].flowerId);
+    sessionStorage.setItem("quizBouquet", bouquetIdString);
+
     $('#byb-flower-1').attr('src', flowers[topThree[0]].image[0]);
     $('#byb-flower-2').attr('src', flowers[topThree[1]].image[1]);
     $('#byb-flower-3').attr('src', flowers[topThree[2]].image[2]);
     $('#quiz-meaning-1').html(flowers[topThree[0]].meaning);
     $('#quiz-meaning-2').html(flowers[topThree[1]].meaning);
     $('#quiz-meaning-3').html(flowers[topThree[2]].meaning);
+    console.log(flowers[topThree[0]].meaning);
+    console.log(flowers[topThree[1]].meaning);
+    console.log(flowers[topThree[2]].meaning);
 
 });
+
+function quizAddToCart() {
+    ctr = sessionStorage.getItem("customBouquetInCartCtr");
+    ctr++;
+    sessionStorage.setItem("customBouquetInCartCtr", ctr);
+
+
+    quizBouquet = sessionStorage.getItem("quizBouquet");
+    sessionStorage.setItem("customItem"+ctr, quizBouquet);
+
+    console.log("Test: " +sessionStorage.getItem("customItem"+ctr));
+
+    //Set total
+    if (sessionStorage.getItem("cartTotal") == null) {
+        sessionStorage.setItem("cartTotal", 0);
+    }
+    cartTotal = parseInt(sessionStorage.getItem("cartTotal"));
+    cartTotal += 45;
+    sessionStorage.setItem("cartTotal", cartTotal);
+    console.log(sessionStorage.getItem("cartTotal"));
+
+
+    quizAddToCartSuccess();
+}
+
+function quizAddToCartSuccess() {
+    swal("Item added to cart!", {
+        buttons: false,
+        timer: 2000,
+      });
+}
+

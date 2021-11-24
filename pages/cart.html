@@ -291,17 +291,11 @@ h1 {letter-spacing: 6px}
             total = 45;
             
             itemId = sessionStorage.getItem("customItem"+l);
-            console.log(itemId);
+            console.log("customItem"+l + ": " +itemId);
 
             flower1 = parseInt(itemId.charAt(0));
             flower2 = parseInt(itemId.charAt(1)); 
             flower3 = parseInt(itemId.charAt(2));
-
-            
-            
-            /*console.log(flowers[flower1-1].image[0]);
-            console.log(flowers[flower2-1].image[1]);
-            console.log(flowers[flower3-1].image[2]);*/
             
             // If only one of this item
             if(!$('#row'+itemId).length){
