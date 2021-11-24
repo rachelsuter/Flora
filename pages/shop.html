@@ -20,9 +20,14 @@ h1 {letter-spacing: 6px}
     <script type="text/javascript" src="../scripts/app.js"></script>
     <script type="text/javascript" src="../scripts/loadHeader.js"></script>
     <script type="text/javascript" src="../scripts/addtocartTEST.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     
     <script>
+
         $(document).ready(function() {
+            var quickAdd = "quick add";
+            var picture = "picture";
           var url_string = window.location.href;
           var url = new URL(url_string);
           var c = (url.searchParams.get("search"));
@@ -98,15 +103,19 @@ h1 {letter-spacing: 6px}
               j = i;
             }
             // Get all bouquets (no search)
+            
             if (searchInput == null || searchInput.length == 0) {
+
                 //$("#row" + j).append("<td><div class='shop-item'><div class='quick-add-btn-container'><button class='quick-add-btn' onclick='addToCart("+products[i].itemNum+");'></button></div><img onclick='loadItemInfo("+products[i].itemNum+");' src='" + products[i].image + "' style='width:200px;height:270px;'></div><div class='text-center'>" + products[i].name + "</div> </br><div>$" + products[i].price + "</div></td>");
                 //$("#row" + j).append("<td><div class='shop-item-image shop-item'><div class='quick-add-btn-container'><img class='quick-add-btn' src='../images/quick-add-btn.png' onclick='addToCart("+products[i].itemNum+");'/></div><div class='shop-item-parent'><img onclick='loadItemInfo("+products[i].itemNum+");' src='" + products[i].image + "' style='width:200px;height:270px; border-radius:20px;'></div></div><div class='text-center'>" + products[i].name + "</div><div>$" + products[i].price + "</div></td>");
-                $("#row" + j).append("<td><div class='shop-item-image shop-item'><div class='quick-add-btn-container'><img class='quick-add-btn' src='../images/quick-add-btn.png' onclick='addToCart("+products[i].itemNum+","+products[i].price+");'/></div><div class='shop-item-parent'><img onclick='loadItemInfo("+products[i].itemNum+");' src='" + products[i].image + "' style='width:200px;height:270px; border-radius:20px;'></div></div><div class='text-center shop-item-title'>" + products[i].name + "</div></td>");
+                //$("#row" + j).append("<td><div class='shop-item-image shop-item'><div class='shop-item-parent'><img onclick='loadItemInfo("+products[i].itemNum+");' src='" + products[i].image + "' style='width:200px;height:270px; border-radius:20px;'></div><div class='quick-add-btn-container'><img id='quick-add-btn' class='quick-add-btn' src='../images/quick-add-btn.png' onclick='addToCart("+products[i].itemNum+","+products[i].price+");'/></div></div><div class='text-center shop-item-title'>" + products[i].name + "</div></div></td>");
+                //$("#row" + j).append("<td><div class='shop-item-image shop-item'><div class='shop-item-parent'><img src='" + products[i].image + "' style='width:200px;height:270px; border-radius:20px;'></div><div class='text-center shop-item-title'>" + products[i].name + "</div><div onclick='reply_click(test)' id='quick-add-btn' class='quick-add-btn-container'><img class='quick-add-btn' src='../images/quick-add-btn.png'/></div></div></div></td>");
+                $("#row" + j).append("<td><div class='shop-item-image shop-item'><div class='shop-item-parent'><img onclick='image_click("+products[i].itemNum+")' src='" + products[i].image + "' style='width:200px;height:270px; border-radius:20px;'></div><div class='text-center shop-item-title'>" + products[i].name + "</div><div class='quick-add-btn-container'><img class='quick-add-btn' src='../images/quick-add-btn.png' onclick='quick_add_click("+products[i].itemNum+","+products[i].price+")'/></div></div></div></td>");
 
             } else {
                 // Get bouquets based on search 
                 if ((products[i].meaning).toLowerCase().includes(searchInput) || (products[i].name).toLowerCase().includes(searchInput)){
-                    $("#row" + j).append("<td><div class='shop-item-image shop-item'><div class='quick-add-btn-container'><img class='quick-add-btn' src='../images/quick-add-btn.png' onclick='addToCart("+products[i].itemNum+","+products[i].price+");'/></div><div class='shop-item-parent'><img onclick='loadItemInfo("+products[i].itemNum+");' src='" + products[i].image + "' style='width:200px;height:270px; border-radius:20px;'></div></div><div class='text-center shop-item-title'>" + products[i].name + "</div></td>");
+                    $("#row" + j).append("<td><div class='shop-item-image shop-item'><div class='shop-item-parent'><img onclick='image_click("+products[i].itemNum+")' src='" + products[i].image + "' style='width:200px;height:270px; border-radius:20px;'></div><div class='text-center shop-item-title'>" + products[i].name + "</div><div class='quick-add-btn-container'><img class='quick-add-btn' src='../images/quick-add-btn.png' onclick='quick_add_click("+products[i].itemNum+","+products[i].price+")'/></div></div></div></td>");
                 }
             }
         }
@@ -154,7 +163,9 @@ h1 {letter-spacing: 6px}
 <div class="table-parent center center-table" style="padding-top: 35px;">
     <div class="inner center-table">
         <table class="table table-center shop-table">
-            <tbody id="products"></tbody>
+            <tbody id="products">
+               
+            </tbody>
         </table>
     </div>      
 </div>
@@ -193,9 +204,9 @@ h1 {letter-spacing: 6px}
 
 <script>
     //console.log(Cookies.get('name'));
-    console.log("defaultBouquet1:" + sessionStorage.getItem("defaultBouquet"+1));
+    /*console.log("defaultBouquet1:" + sessionStorage.getItem("defaultBouquet"+1));
     console.log("defaultBouquet2:" + sessionStorage.getItem("defaultBouquet"+2));
-    console.log("cartCtr:" + sessionStorage.getItem("defaultBouquetCtr"));
+    console.log("cartCtr:" + sessionStorage.getItem("defaultBouquetCtr"));*/
 </script>
 
 </body>

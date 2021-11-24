@@ -21,7 +21,7 @@ var flowers = [
         "image": ["../images/flowers/rose-red-1.png", "../images/flowers/rose-red-2.png", "../images/flowers/rose-red-3.png"],
         "icon": "../images/flower-icons/rose-icon-red.png",
         "meaning": "Red roses symbolize passion and romance.",
-        "tags": "passion, romance"
+        "tags": "passion, romance, romantic, passionate"
     },
     {
         "flowerId": 4,
@@ -53,7 +53,7 @@ var flowers = [
         "image": ["../images/flowers/tulip-peach-1.png", "../images/flowers/tulip-peach-2.png", "../images/flowers/tulip-peach-3.png"],
         "icon": "../images/flower-icons/tulip-icon-peach.png",
         "meaning": "Peach tulips symbolize loyalty and gratitude.",
-        "tags": "loyalty, gratitude, thank you"
+        "tags": "loyalty, gratitude, thoughtful, thank you"
     },
     {
         "flowerId": 8,
@@ -61,7 +61,7 @@ var flowers = [
         "image": ["../images/flowers/tulip-purple-1.png", "../images/flowers/tulip-purple-2.png", "../images/flowers/tulip-purple-3.png"],
         "icon": "../images/flower-icons/tulip-icon-purple.png",
         "meaning": "Purple tulips represent admiration and can send a congratulatory message.",
-        "tags": "admiration, congratulations"
+        "tags": "admiration, congratulations, respect, congrats"
     },
     {
         "flowerId": 9,

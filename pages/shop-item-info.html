@@ -22,17 +22,11 @@ h1 {letter-spacing: 6px}
     <script type="text/javascript" src="../scripts/setCookies.js"></script>
     <script type="text/javascript" src="../scripts/app.js"></script>
     <script type="text/javascript" src="../scripts/loadHeader.js"></script>
-    <script type="text/javascript" src="../scripts/addtocartTEST.js"></script>
     <script type="text/javascript" src="../scripts/shop-item.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script>
         $(document).ready(function() {
-          var url_string = window.location.href;
-          var url = new URL(url_string);
-          var c = (url.searchParams.get("search"));
-          var searchInput;
-          if (c != null) {
-              searchInput = c.toLowerCase();
-          }
 
           var products = [
         {
@@ -106,7 +100,9 @@ h1 {letter-spacing: 6px}
                     document.getElementById("item-name").innerHTML = itemName;
                     document.getElementById("item-price").innerHTML = price;
                     document.getElementById("item-meaning").innerHTML = meaning;
-                    document.getElementById("add-to-cart-btn").onclick = addToCart(products[i].itemNum);
+
+                    $("#add-to-cart-btn-container").append("<button  onclick='itemInfoAddToCart("+itemNum+","+price+")' id='add-to-cart-btn' class='add-to-cart-btn'><img class='resize-cart' src=''../images/icons/cart-icon.png'/>Add to Cart</button>");
+
                 }
             }
         });
@@ -146,8 +142,7 @@ h1 {letter-spacing: 6px}
             <div id="item-price"></div>
             <div id="item-meaning"></div>
 
-            <div style="bottom: 0; text-align: center;">
-                <button id="add-to-cart-btn" class="add-to-cart-btn"><img class="resize-cart" src="../images/icons/cart-icon.png"/>Add to Cart</button>
+            <div id="add-to-cart-btn-container"style="bottom: 0; text-align: center;">
             </div>
         </div>
         
@@ -165,12 +160,6 @@ h1 {letter-spacing: 6px}
     <p>Follow us on social media</p>
   </footer>
   
-  <script>
-      //console.log(Cookies.get('name'));
-      console.log("defaultBouquet1:" + sessionStorage.getItem("defaultBouquet"+1));
-      console.log("defaultBouquet2:" + sessionStorage.getItem("defaultBouquet"+2));
-      console.log("cartCtr:" + sessionStorage.getItem("defaultBouquetCtr"));
-  </script>
   
   </body>
   </html>

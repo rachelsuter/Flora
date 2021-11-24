@@ -136,7 +136,7 @@ h1 {letter-spacing: 6px}
             "image": ["../images/flowers/rose-red-1.png", "../images/flowers/rose-red-2.png", "../images/flowers/rose-red-3.png"],
             "icon": "../images/flower-icons/rose-icon-red.png",
             "meaning": "Red roses symbolize passion and romance.",
-            "tags": "passion, romance"
+            "tags": "passion, romance, romantic, passionate"
         },
         {
             "flowerId": 4,
@@ -144,7 +144,7 @@ h1 {letter-spacing: 6px}
             "image": ["../images/flowers/carnation-pink-1.png", "../images/flowers/carnation-pink-2.png", "../images/flowers/carnation-pink-3.png"],
             "icon": "../images/flower-icons/carnation-icon-pink.png",
             "meaning": "Pink carnations show gratitude, fondness, and mother-like love.",
-            "tags": "gratitude, fondness, mother"
+            "tags": "gratitude, fondness, mother, thank you"
         },
         {
             "flowerId": 5,
@@ -168,7 +168,7 @@ h1 {letter-spacing: 6px}
             "image": ["../images/flowers/tulip-peach-1.png", "../images/flowers/tulip-peach-2.png", "../images/flowers/tulip-peach-3.png"],
             "icon": "../images/flower-icons/tulip-icon-peach.png",
             "meaning": "Peach tulips symbolize loyalty and gratitude.",
-            "tags": "loyalty, gratitude"
+            "tags": "loyalty, gratitude, thoughtful, thank you"
         },
         {
             "flowerId": 8,
@@ -176,7 +176,7 @@ h1 {letter-spacing: 6px}
             "image": ["../images/flowers/tulip-purple-1.png", "../images/flowers/tulip-purple-2.png", "../images/flowers/tulip-purple-3.png"],
             "icon": "../images/flower-icons/tulip-icon-purple.png",
             "meaning": "Purple tulips represent admiration and can send a congratulatory message.",
-            "tags": "admiration, congratulations"
+            "tags": "admiration, congratulations, respect, congrats"
         },
         {
             "flowerId": 9,
@@ -192,6 +192,19 @@ h1 {letter-spacing: 6px}
         var j = 0;
 
         var cartTotal = 0;
+
+
+        if (sessionStorage.getItem("cartTotal") > 0) {
+            $('#checkout-btn').removeAttr('disabled');
+            $('#checkout-btn').removeAttr('disabled');
+            //$('#cartEmpty').style.visibility='hidden';
+            
+            console.log("disabled");
+        } else {
+            $('#checkout-btn').attr('disabled','disabled');
+            $('#checkout-btn').attr('disabled','disabled');
+            //$('#cartEmpty').style.visibility='visible';
+        }
 
         /* Initialize quantity array to 0; assume 10 products for now */
         var k = 0;
@@ -340,6 +353,9 @@ h1 {letter-spacing: 6px}
 
             l++;
         }
+        if (sessionStorage.getItem("cartTotal") == null) {
+                sessionStorage.setItem("cartTotal", 0);
+        }
         $("#cartTotal").html("$"+sessionStorage.getItem("cartTotal"));
     });
 
@@ -371,10 +387,14 @@ h1 {letter-spacing: 6px}
                 <td>TOTAL</td>
             </tr>
         </tbody>
+       
     </table>
+    <div id="cartEmpty">
+        
+    </div>
     </div>
   
-    <div class="col2" style="background:#3B552E">
+    <div class="col2" style="background:#3B552E; height: 600px;">
       <div class="col2-content sticky">
         <h3 class="title">Cart</h3>
         
@@ -383,7 +403,7 @@ h1 {letter-spacing: 6px}
         </div>
 
         <div style="text-align: center; padding-top: 30px;">
-            <button id="add-to-cart-btn" class="checkout-btn"  onclick="location.href = 'checkout.html'"><img class="resize-card" src="../images/icons/credit-card-icon.png"/>CHECKOUT</button>
+            <button id="checkout-btn" class="checkout-btn"  onclick="location.href = 'checkout.html'"><img class="resize-card" src="../images/icons/credit-card-icon.png"/>CHECKOUT</button>
         </div>
         
       </div>

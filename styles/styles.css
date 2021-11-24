@@ -66,6 +66,7 @@
 
 .nav {
     padding-right: 8%;
+    padding-left: 6%;
 }
 
 /* FOOTER */
@@ -132,7 +133,7 @@
     padding-bottom: 0px;
     padding-right: 0px;
     position: absolute;
-    bottom: 0;
+    bottom: 60px;
     right: 0;
     margin-right: 20%;
 }
@@ -144,7 +145,7 @@
 .quick-add-btn:hover {
     width: 85px;
 }
-.shop-item:hover .quick-add-btn {
+.shop-item:hover .quick-add-btn  {
     display: inline-block;
 } 
 
