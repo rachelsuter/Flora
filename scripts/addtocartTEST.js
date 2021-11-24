@@ -1,6 +1,6 @@
 function quick_add_click(itemNum, price)
 {
-    alert("quick add");
+    //alert("quick add");
 
     defaultBouquetCtr = parseInt(sessionStorage.getItem("defaultBouquetCtr")) + 1;
     sessionStorage.setItem("defaultBouquetCtr", defaultBouquetCtr);
@@ -22,7 +22,7 @@ function quick_add_click(itemNum, price)
 }
 function image_click(itemNum)
 {
-    alert("image");
+    //alert("image");
     sessionStorage.setItem("currentShopItem", itemNum);
     location.href = "../pages/shop-item-info.html";
 }
@@ -47,9 +47,9 @@ function addToCart(itemNum, price) {
     elementClicked = true;
     });
     if( elementClicked != true ) {
-        alert("element not clicked");
+        //alert("element not clicked");
     }else{
-        alert("element clicked");
+        //alert("element clicked");
     }
 
     defaultBouquetCtr = parseInt(sessionStorage.getItem("defaultBouquetCtr")) + 1;

@@ -98,7 +98,7 @@ h1 {letter-spacing: 6px}
                     meaning = products[i].meaning;
                     document.getElementById("item-image").src = image;
                     document.getElementById("item-name").innerHTML = itemName;
-                    document.getElementById("item-price").innerHTML = price;
+                    document.getElementById("item-price").innerHTML = "Price: $"+price;
                     document.getElementById("item-meaning").innerHTML = meaning;
 
                     $("#add-to-cart-btn-container").append("<button  onclick='itemInfoAddToCart("+itemNum+","+price+")' id='add-to-cart-btn' class='add-to-cart-btn'><img class='resize-cart' src=''../images/icons/cart-icon.png'/>Add to Cart</button>");
@@ -130,22 +130,41 @@ h1 {letter-spacing: 6px}
         </div>
     </header>
 
-    <div id="shop-item-content">
-        <!-- Add layout here -->
-        <div class="shop-item-col">
-            <img id="item-image"/>
+    <div class="row">
+        <div class="column1">
+            <img class="item-image" id="item-image"/>
         </div>
-        
-
-        <div class="shop-item-col">
-            <div id="item-name"></div>
-            <div id="item-price"></div>
-            <div id="item-meaning"></div>
-
-            <div id="add-to-cart-btn-container"style="bottom: 0; text-align: center;">
+        <div class="column2">
+            <div class="right-content">
+                <h2 class="item-name" id="item-name"></h2>
+                <div class="item-text">
+                    <div id="item-meaning"></div>
+                    <br>
+                    <div id="item-price"></div>
+                </div>
+                <div id="add-to-cart-btn-container"style="bottom: 0; text-align: center;"></div>
             </div>
         </div>
+      </div>
+
+<!--
+    <div id="shop-item-content">
+        <div class="shop-item-col1">
+            <img class="item-image" id="item-image"/>
+        </div>
         
+
+        <div class="shop-item-col2">
+            <div class="right-content">
+                <h2 class="item-name" id="item-name"></h2>
+                <div id="item-meaning"></div>
+                <div id="item-price"></div>
+            </div>
+
+            <div id="add-to-cart-btn-container"style="bottom: 0; text-align: center;"></div>
+        </div>
+        
+-->
 
     </div>    
 
