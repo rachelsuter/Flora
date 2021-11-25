@@ -303,6 +303,7 @@ h1 {letter-spacing: 6px}
 
             total = 45;
             
+            if (sessionStorage.getItem("customItem"+l) != null) {
             itemId = sessionStorage.getItem("customItem"+l);
             console.log("customItem"+l + ": " +itemId);
 
@@ -334,8 +335,10 @@ h1 {letter-spacing: 6px}
 
 
                 $("#row" + itemId).append("<td class='center-text' style='width:25%'>$45</td>");
-                $("#row" + itemId).append("<td id='row"+itemId+"qty' class='center-text qty-text' style='width:25%'>"+sessionStorage.getItem("qty"+itemId)+"</td>");
-                //$("#row" + itemId).append("<td id='row"+itemId+"qty' class='center-text' style='width:25%'><button class='qty-btn' onclick=removeCustomBouquet("+itemId+");>-</button>"+sessionStorage.getItem("qty"+itemId)+"</td>");
+                //working
+                //$("#row" + itemId).append("<td id='row"+itemId+"qty' class='center-text qty-text' style='width:25%'>"+sessionStorage.getItem("qty"+itemId)+"</td>");
+
+                $("#row" + itemId).append("<td id='row"+itemId+"qty' class='center-text qty-text' style='width:25%'><button class='qty-btn' onclick=removeCustomBouquet("+itemId+");>-</button>"+sessionStorage.getItem("qty"+itemId)+"<button class='qty-btn' onclick=increaseCustomBouquet("+itemId+");>+</button></td>");
                 $("#row" + itemId).append("<td id='row"+itemId+"total' class='center-text' style='width:25%'>$"+total+"</td>");
             } else { // If same item is already in the cart
                 qty = sessionStorage.getItem("qty"+itemId);
@@ -345,12 +348,12 @@ h1 {letter-spacing: 6px}
                 total = total*(parseInt(sessionStorage.getItem("qty"+itemId)));
 
                 // Change quantity & price when >1 of same item
-                $("#row" + itemId + "qty").html(sessionStorage.getItem("qty"+itemId));   
+                $("#row" + itemId + "qty").html("<button class='qty-btn' onclick=removeCustomBouquet("+itemId+");>-</button>"+sessionStorage.getItem("qty"+itemId)+"<button class='qty-btn' onclick=increaseCustomBouquet("+itemId+");>+</button>");   
                 $("#row" + itemId + "total").html("$"+total);  
             }
 
             console.log("item"+itemId+"qty: " + sessionStorage.getItem("qty"+itemId));
-
+        }
             l++;
         }
         if (sessionStorage.getItem("cartTotal") == null) {

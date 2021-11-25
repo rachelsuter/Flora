@@ -15,10 +15,11 @@ h1 {letter-spacing: 6px}
 
 <head>
     <link rel="stylesheet" type="text/css" href="../styles/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/checkout.css"/>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="../scripts/app.js"></script>
     <script type="text/javascript" src="../scripts/loadHeader.js"></script>
-    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -45,6 +46,34 @@ h1 {letter-spacing: 6px}
     </div>
 </header>
 
+<script>
+    $(document).ready(function() {
+        $("#cartTotal").html("$"+sessionStorage.getItem("cartTotal"));
+        console.log(sessionStorage.getItem("cartTotal"));
+    });
+</script>
+<!-- Checkout forms -->
+<div class="col-container">
+    <div class="col1" style="background:white">
+      
+    </div>
+  
+    <div class="col2" style="background:#3B552E; height: 600px;">
+      <div class="col2-content sticky">
+        <h3 class="title">Checkout</h3>
+        
+        <div style="color:white; padding-top: 10px;">
+            <p style="display:inline-block; width:230px">TOTAL</p> &nbsp;&nbsp;<p style="display:inline-block; font-size: 20px; font-weight: bold;" id="cartTotal"></p>
+        </div>
+
+        <div style="text-align: center; padding-top: 30px;">
+            <button id="checkout-btn" class="checkout-btn" onclick=""><img class="resize-card" src="../images/icons/credit-card-icon.png"/>PLACE ORDER</button>
+        </div>
+        
+      </div>
+    </div>
+  
+  </div>
 
 <!-- End Page Content -->
 </div>

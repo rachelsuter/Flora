@@ -58,12 +58,69 @@ function confirmDefaultRemove(itemNum){
 }
 
 function removeCustomBouquet(itemNum) {
-    confirmCustomRemove(itemNum);
+    if(sessionStorage.getItem("qty"+itemNum) == 1) {
+        swal({
+            title: "Are you sure you want to remove this item?",
+            buttons: {
+                remove: {
+                    text: "Remove",
+                    className: "confirm-btn-color",
+                  },
+                cancel: true,
+                
+    
+            }
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                confirmCustomRemove(itemNum);
+            } else {
+              //swal("Your imaginary file is safe!");
+            }
+          });
+    } else {
+        confirmCustomRemove(itemNum);
+    }
+    //confirmCustomRemove(itemNum);
 }
 
 function confirmCustomRemove(itemNum) {
     console.log("itemNum " + itemNum);
-    
+    customBouquetCtr = parseInt(sessionStorage.getItem("customBouquetInCartCtr"));
+    console.log("customCtr: " + customBouquetCtr);
+
+    var i = 0;
+    var removed = 0;
+    while (i <= customBouquetCtr) {
+        console.log(i + sessionStorage.getItem("customItem"+i));
+
+        if (sessionStorage.getItem("customItem"+i) == itemNum) {
+           /* console.log("Found! " + sessionStorage.getItem("customItem"+i) + "==" + itemNum);
+            console.log("removing customBouquet"+i);
+            sessionStorage.removeItem("customItem"+i);*/
+
+            qty = sessionStorage.getItem("qty"+itemNum);
+            qty--;
+            sessionStorage.setItem("qty"+itemNum, qty);
+
+            if (removed == 0) {
+
+                cartTotal = sessionStorage.getItem("cartTotal");
+                cartTotal = cartTotal - 45;
+                sessionStorage.setItem("cartTotal", cartTotal);
+
+                console.log("removing customBouquet"+i);
+                sessionStorage.removeItem("customItem"+i);
+
+                removed = 1;
+            } 
+        }
+
+        i++;
+    }
+    location.reload();
+
+    /*
     customBouquetCtr = parseInt(sessionStorage.getItem("customBouquetInCartCtr"));    
     var i = 0;
     var removed = 0;
@@ -95,4 +152,5 @@ function confirmCustomRemove(itemNum) {
         sessionStorage.setItem("customBouquetInCartCtr",customBouquetCtr);
     }
     location.reload();
+    */
 }

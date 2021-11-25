@@ -1,0 +1,85 @@
+/* LAYOUT */
+.col-container {
+    display: table;
+    width: 100%;
+}
+.col1 {
+    display: table-cell;
+    padding: 16px;
+}
+.col2 {
+    display: table-cell;
+    padding: 16px;
+    width: 28%;
+}
+
+
+.col2-content {
+    padding: 40px;
+}
+
+.sticky {
+    position: fixed;
+    z-index: 9999;
+    display: block;
+    width: 26%;
+
+}
+
+.title {
+    color: white;
+    border-top: 2px solid white;
+}
+
+
+.checkout-btn {
+    cursor: pointer;
+    color: #666666;
+    background: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /*padding-left: 60px;*/
+    padding-right: 60px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    transition: 0.5s ease-in-out;
+
+}
+.checkout-btn:hover:enabled {
+    box-shadow: 0px 0px 0px 2.5px #fff, 0px 0px 0px 5px #3B552E, 0px 0px 0px 10px white, 0px 0px 0px 10.5px #3B552E;
+    background: white;
+    color: #3B552E;
+    transition: 0.5s ease-in-out;
+}
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+
+.resize-card {
+    width: 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.qty-btn {
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-radius: 50%;
+    width: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.qty-btn:hover {
+    background: #e0e0e0;
+} 
+
+.confirm-btn-color {
+    background-color: #3B552E;
+}
+.confirm-btn-color:hover {
+    background-color: #85ad71;
+}
