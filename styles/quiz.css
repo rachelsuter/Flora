@@ -218,7 +218,13 @@ a{
 
 }
 
-.quiz-submit-btn:hover {
+.quiz-submit-btn:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+.quiz-submit-btn:hover:enabled {
     box-shadow: 0px 0px 0px 2.5px #3B552E, 0px 0px 0px 5px #fff, 0px 0px 0px 10px #3B552E, 0px 0px 0px 10.5px #fff;
     background: #3B552E;
     color: white;

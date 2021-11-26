@@ -9,6 +9,12 @@
 var colorMatchesArr = [0,0,0,0,0,0,0,0,0,0,0,0]; //Keeps track of which moods have been selected - index where arr = 1 indicates mood
 var moodsCtr = 0; //Keeps track of number of moods selected
 
+$(document).ready(function(){
+
+    $('#quiz-submit-btn').attr('disabled','disabled');
+   
+});
+
 /* Change tag color on click (only 3 tags can be selected) */
 function setColor(tag) {
 
@@ -18,13 +24,25 @@ function setColor(tag) {
 
     var i;
     
-
+    if (moodsCtr > -1){
+        $('#quiz-submit-btn').removeAttr('disabled');
+    } else if (moodsCtr == 0 ){
+        $('#quiz-submit-btn').attr('disabled','disabled');
+    }
+    
+    
     //If tag already selected, on click, make white again & deselect
     if (colorMatchesArr[moodIndex] == 1) {
+        
         moodTag.style.backgroundImage = "url('../images/quiz-assets/tag-white.png')";
         moodTag.style.color = "rgb(90, 90, 90)";
         colorMatchesArr[moodIndex] = 0;      
         moodsCtr--;  
+        if (moodsCtr == 0 ){
+            $('#quiz-submit-btn').attr('disabled','disabled');
+            //location.reload();
+        }
+
     }
     else {
         //If 3 already selected, keep tag clicked white
