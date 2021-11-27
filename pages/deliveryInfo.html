@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<title>Flora</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="../images/flower-icons/carnation-icon.png"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1 {font-family: "Raleway", Arial, sans-serif}
+h1 {letter-spacing: 6px}
+.w3-row-padding img {margin-bottom: 12px}
+</style>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../styles/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/checkout.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/deliveryInfo.css"/>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../scripts/app.js"></script>
+    <script type="text/javascript" src="../scripts/loadHeader.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+<!-- !PAGE CONTENT! -->
+<div class="w3-content" style="max-width:1500px">
+
+<!-- Header -->
+<header class="w3-panel w3-center w3-opacity">
+
+    <div>
+        <a href="index.html">
+            <h1 class="logo" ALIGN=CENTER>Flora</h1>
+        </a>
+        <div class="w3-bar nav">
+    
+            <a href="index.html" class="w3-bar-item w3-button">Home</a>
+            <a href="shop.html" class="w3-bar-item w3-button">Shop</a>
+            <a href="build-your-bouquet.html" class="w3-bar-item w3-button">Build Your Bouquet</a>
+            <a href="quiz.html" class="w3-bar-item w3-button w3-hide-small">Find Your Flowers Quiz</a>
+        </div>
+        <a class="cart-icon-container" href="cart.html">
+            <img class="cart-icon" src="../images/icons/cart-icon.png"/>
+        </a>
+    </div>
+</header>
+
+<script>
+    $(document).ready(function() {
+        $("#cartTotal").html("$"+sessionStorage.getItem("cartTotal"));
+        console.log(sessionStorage.getItem("cartTotal"));
+    });
+</script>
+<!-- Checkout forms -->
+<div class="col-container">
+    <div class="col1" style="background:white">
+        <div class="container">
+            <form action="paymentInfo.html" method="" id="address-form">
+            <h1 style="font-family: 'Raleway'; ">Delivery Information</h1>
+            <p>Please enter your shipping details.</p>
+            <hr />
+            <div class="form">
+              
+            <div class="fields fields--2">
+              <label class="field">
+                <span class="field__label" for="firstname">First name</span>
+                <input class="field__input" type="text" id="firstname" required/>
+              </label>
+              <label class="field">
+                <span class="field__label" for="lastname">Last name</span>
+                <input class="field__input" type="text" id="lastname" required/>
+              </label>
+            </div>
+            <label class="field">
+                <span class="field__label" for="email">Email</span>
+                <input class="field__input" type="email" id="email" required/>
+              </label>
+            <label class="field">
+              <span class="field__label" for="address">Address</span>
+              <input class="field__input" type="text" id="address" required/>
+            </label>
+            <label class="field">
+              <span class="field__label" for="country">Country</span>
+              <select class="field__input" id="country" required>
+                <option value=""></option>
+                <option value="unitedstates">United States</option>
+              </select>
+            </label>
+            <div class="fields fields--3" >
+              <label class="field">
+                <span class="field__label" for="zipcode">Zip code</span>
+                <input class="field__input" type="number" id="zipcode" required/>
+              </label>
+              <label class="field">
+                <span class="field__label" for="city">City</span>
+                <input class="field__input" type="text" id="city" required/>
+              </label>
+              <label class="field">
+                <span class="field__label" for="state">State</span>
+                <select class="field__input" id="state" required>
+                    <option value=""></option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                </select>
+              </label>
+            </div>
+            </div>
+            <hr>
+            <button class="continue-btn">CONTINUE TO PAYMENT</button>
+        </form>
+          </div>
+
+
+    </div>
+  
+    <div class="col2" style="background:#3B552E; height: 600px;">
+      <div class="col2-content sticky">
+        <h3 class="title" style="font-family: 'Raleway';">Order Summary</h3>
+        
+        <div style="color:white; padding-top: 10px;">
+            <p style="display:inline-block; width:230px;color:white;">SUBTOTAL</p> &nbsp;&nbsp;<p style="display:inline-block; font-size: 20px; font-weight: bold; color:white;" id="cartTotal"></p>
+        </div>
+
+        <!--<div style="text-align: center; padding-top: 30px;">
+            <button id="checkout-btn" class="checkout-btn" onclick=""><img class="resize-card" src="../images/icons/credit-card-icon.png"/>PLACE ORDER</button>
+        </div>
+    -->
+      </div>
+    </div>
+  
+  </div>
+
+<!-- End Page Content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large"> 
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <p>Follow us on social media</p>
+</footer>
+
+</body>
+</html>
