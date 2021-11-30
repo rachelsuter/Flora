@@ -20,7 +20,7 @@
     flex: 50%;
     /*background:#3B552E;*/
     text-align: center;
-    margin: 20px;
+    margin: 15px;
     height: 350px;
     border-radius: 15px;
     background-image: url("../images/shop-fall-flowers.jpg");
@@ -30,7 +30,7 @@
     flex: 50%;
     background: gray;
     text-align: center;
-    margin: 20px;
+    margin: 15px;
     height: 350px;
     border-radius: 15px;
     background-image: url("../images/take-the-quiz.jpg");
