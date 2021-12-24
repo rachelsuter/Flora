@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<title>Flora</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="../images/flower-icons/carnation-icon.png"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1 {font-family: "Raleway", Arial, sans-serif}
+h1 {letter-spacing: 6px}
+.w3-row-padding img {margin-bottom: 12px}
+</style>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../styles/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/byb.css"/>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script type="text/javascript" src="../scripts/setBybSessions.js"></script>
+    <script type="text/javascript" src="../scripts/byb.js"></script>
+    
+    
+</head>
+<body>
+<div class="w3-content" style="max-width:1500px;"></div>
+    <!-- Header -->
+    <header class="w3-panel w3-center w3-opacity">
+
+        <div>
+            <a href="index.html">
+                <h1 class="logo" ALIGN=CENTER>Flora</h1>
+            </a>
+            <div class="w3-bar nav">
+        
+                <a href="index.html" class="w3-bar-item w3-button">Home</a>
+                <a href="shop.html" class="w3-bar-item w3-button">Shop</a>
+                <a href="build-your-bouquet.html" class="w3-bar-item w3-button w3-light-grey">Build Your Bouquet</a>
+                <a href="quiz.html" class="w3-bar-item w3-button w3-hide-small">Find Your Flowers Quiz</a>
+            </div>
+            <a class="cart-icon-container" href="cart.html">
+                <img class="cart-icon" src="../images/icons/cart-icon.png"/>
+            </a>
+        </div>
+    </header>
+
+    <div id="content">
+        <div class="full-height">
+            <div class="col col1">
+                <h1 style="padding-bottom: 30px;">BUILD YOUR BOUQUET</h1>
+                <h4 style="font-family: 'Raleway';">My Flowers</h4>
+
+                <div style="height:50%;"> 
+                    <table class="table table-center">
+                        <tbody id="flowers-table">
+                            <tr class="center-text table-headings">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-bottom: 0; text-align: center;">
+                    <button id="start-over-btn" class="start-over-btn" style="margin-bottom: 0" onclick="areYouSureStartOver()"><img class="resize-start-over" src="../images/icons/start-over-btn-icon.png"/>Start Over</button>
+                </div>
+            </div>
+
+                <div class="col col2">
+                    <div style="text-align: center;">CHOOSE UP TO 3 TYPES OF FLOWERS  TO FILL THE VASE</div>
+                    <div id="flower-option-btns-container" class="flower-option-btns-container">	
+                         <div class="dropdown">
+                            <button class="dropbtn"><img class='icon-resize' src="../images/flower-icons/rose-icon.png"/>Roses &nbsp;∨</button>
+                            <div class="dropdown-content">
+                              <a href="#" id="1"><img class='icon-resize' style="float: left" src="../images/flower-icons/rose-icon-lavender.png"/>Lavender</a>
+                              <a href="#" id="2"><img class='icon-resize' style="float: left" src="../images/flower-icons/rose-icon-orange.png"/>Orange</a>
+                              <a href="#" id="3"><img class='icon-resize' style="float: left" src="../images/flower-icons/rose-icon-red.png"/>Red</a>
+                            </div>
+                          </div>	
+
+                          <div class="dropdown">
+                            <button class="dropbtn"><img class='icon-resize' src="../images/flower-icons/carnation-icon.png"/>Carnations &nbsp;∨</button>
+                            <div class="dropdown-content">
+                              <a href="#" id="4"><img class='icon-resize' style="float: left" src="../images/flower-icons/carnation-icon-pink.png"/>Pink</a>
+                              <a href="#" id="5"><img class='icon-resize' style="float: left" src="../images/flower-icons/carnation-icon-purple.png"/>Purple</a>
+                              <a href="#" id="6"><img class='icon-resize' style="float: left" src="../images/flower-icons/carnation-icon-white.png"/>White</a>
+                            </div>
+                          </div>	
+                        
+                          <div class="dropdown">  
+                            <button class="dropbtn"><img class='icon-resize' src="../images/flower-icons/tulip-icon.png"/>Tulips &nbsp;∨</button>
+                            <div class="dropdown-content">
+                              <a href="#" id="7"><img class='icon-resize' style="float: left" src="../images/flower-icons/tulip-icon-peach.png"/>Peach</a>
+                              <a href="#" id="8"><img class='icon-resize' style="float: left" src="../images/flower-icons/tulip-icon-purple.png"/>Purple</a>
+                              <a href="#" id="9"><img class='icon-resize' style="float: left" src="../images/flower-icons/tulip-icon-yellow.png"/>Yellow</a>
+                            </div>
+                          </div>	
+                    </div>	
+                    	    
+
+                    <!-- Vase and flowers-->
+                    <div class="byb-img-parent center resize">
+                        <img id="byb-flower-3" class="image2 resize"/>
+                        <img id="byb-flower-1" class="image2 resize"/>
+                        <img id="byb-flower-2" class="image2 resize"/>
+                        <img id="byb-vase" class="image1 resize" src="../images/flowers/vase.png"/>
+                    </div>
+                </div>
+
+                <div class="col col3">
+                    
+                    <div class="col3-content" id="col3-content" style="height:75%;">
+                        <h2 style="text-align: center; padding-top: 20px;padding-bottom: 20px; font-family: 'Raleway';">Meaning</h2>
+
+                        
+                    </div>
+                    <div style="text-align: right;font-weight:bold; font-size:18px; padding-bottom: 20px; padding-right: 20px;">Price: $45</div>
+                    <div style="bottom: 0; text-align: center;">
+                        <button id="add-to-cart-btn" class="add-to-cart-btn" onclick="addCustomBouquetToCart()"><img class="resize-cart" src="../images/icons/cart-icon.png"/>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large"> 
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p>Follow us on social media</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<title>Flora</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="../images/flower-icons/carnation-icon.png"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1 {font-family: "Raleway", Arial, sans-serif}
+h1 {letter-spacing: 6px}
+.w3-row-padding img {margin-bottom: 12px}
+</style>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../styles/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/shop-item-info.css"/>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../scripts/setCookies.js"></script>
+    <script type="text/javascript" src="../scripts/app.js"></script>
+    <script type="text/javascript" src="../scripts/loadHeader.js"></script>
+    <script type="text/javascript" src="../scripts/shop-item.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+          var products = [
+        {
+            "itemNum": 1,
+            "name": "Optimist",
+            "image": "../images/bouquets/optimist.png",
+            "meaning": "This bouquet is perfect for Mother's Day. The flowers within it show love and adoration.",
+            "price": 34
+        },
+        {
+            "itemNum": 2,
+            "name": "The Firecracker",
+            "image": "../images/bouquets/the-firecracker.png",
+            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
+            "price": 34
+        },
+        {
+            "itemNum": 3,
+            "name": "Refresh",
+            "image": "../images/bouquets/refresh.png",
+            "meaning": "The flowers in this bouquet show love and appreciation.",
+            "price": 34
+        },
+        {
+            "itemNum": 4,
+            "name": "Pearl",
+            "image": "../images/bouquets/pearl.png",
+            "meaning": "This bouquet shows pure, familial love.",
+            "price": 34
+        },
+        {
+            "itemNum": 5,
+            "name": "Momenta",
+            "image": "../images/bouquets/momenta.png",
+            "meaning": "These flowers show love and devotion.",
+            "price": 34
+        },
+        {
+            "itemNum": 6,
+            "name": "Carnelian",
+            "image": "../images/bouquets/carnelian.png",
+            "meaning": "This bouquet sends the message of happiness.",
+            "price": 34
+        },
+        {
+            "itemNum": 7,
+            "name": "Cafe Azul",
+            "image": "../images/bouquets/cafe-azul.png",
+            "meaning": "These flowers show warmth and thinking of someone.",
+            "price": 34
+        },
+        {
+            "itemNum": 8,
+            "name": "The Prism",
+            "image": "../images/bouquets/the-prism.png",
+            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
+            "price": 34
+        }
+    ];
+    
+            var itemNum = sessionStorage.getItem("currentShopItem");
+            console.log("itemNum: " +itemNum);
+
+            for (var i in products) {
+                if (products[i].itemNum == itemNum) {
+                    itemName = products[i].name;
+                    price = products[i].price;
+                    image = products[i].image;
+                    meaning = products[i].meaning;
+                    document.getElementById("item-image").src = image;
+                    document.getElementById("item-name").innerHTML = itemName;
+                    document.getElementById("item-price").innerHTML = "Price: $"+price;
+                    document.getElementById("item-meaning").innerHTML = meaning;
+
+                    $("#add-to-cart-btn-container").append("<button  onclick='itemInfoAddToCart("+itemNum+","+price+")' id='add-to-cart-btn' class='add-to-cart-btn'><img class='resize-cart' src=''../images/icons/cart-icon.png'/>Add to Cart</button>");
+
+                }
+            }
+        });
+      </script>
+</head>
+<body>
+    <!-- PAGE CONTENT! -->
+    <div class="w3-content" style="max-width:1500px">
+    
+    <!-- Header -->
+    <header class="w3-panel w3-center w3-opacity">
+    
+        <div>
+            <h1 class="logo" ALIGN=CENTER>Flora</h1>
+            <div class="w3-bar">
+        
+            <a href="index.html" class="w3-bar-item w3-button">Home</a>
+            <a href="shop.html" class="w3-bar-item w3-button  w3-light-grey">Shop</a>
+            <a href="build-your-bouquet.html" class="w3-bar-item w3-button">Build Your Bouquet</a>
+            <a href="quiz.html" class="w3-bar-item w3-button w3-hide-small">Find Your Flowers Quiz</a>
+            </div>
+            <a class="cart-icon-container" href="cart.html">
+                <img class="cart-icon" src="../images/icons/cart-icon.png"/>
+            </a>
+        </div>
+    </header>
+
+    <div class="row">
+        <div class="column1">
+            <img class="item-image" id="item-image"/>
+        </div>
+        <div class="column2">
+            <div class="right-content">
+                <h2 class="item-name" id="item-name" style="font-family: 'Raleway';"></h2>
+                <div class="item-text">
+                    <div id="item-meaning"></div>
+                    <br>
+                    <div id="item-price"></div>
+                </div>
+                <div id="add-to-cart-btn-container"style="bottom: 0; text-align: center;"></div>
+            </div>
+        </div>
+      </div>
+
+<!--
+    <div id="shop-item-content">
+        <div class="shop-item-col1">
+            <img class="item-image" id="item-image"/>
+        </div>
+        
+
+        <div class="shop-item-col2">
+            <div class="right-content">
+                <h2 class="item-name" id="item-name"></h2>
+                <div id="item-meaning"></div>
+                <div id="item-price"></div>
+            </div>
+
+            <div id="add-to-cart-btn-container"style="bottom: 0; text-align: center;"></div>
+        </div>
+        
+-->
+
+    </div>    
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large"> 
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p>Follow us on social media</p>
+  </footer>
+  
+  
+  </body>
+  </html>

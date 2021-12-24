@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<title>Flora</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="../images/flower-icons/carnation-icon.png"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1 {font-family: "Raleway", Arial, sans-serif}
+h1 {letter-spacing: 6px}
+.w3-row-padding img {margin-bottom: 12px}
+</style>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../styles/styles.css"/>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    
+    <script type="text/javascript" src="../scripts/app.js"></script>
+    <script type="text/javascript" src="../scripts/loadHeader.js"></script>
+    <script type="text/javascript" src="../scripts/cart.js"></script>
+    
+</head>
+
+<body>
+<!-- !PAGE CONTENT! -->
+<div class="w3-content" style="max-width:1500px">
+
+<!-- Header -->
+<header class="w3-panel w3-center w3-opacity">
+
+    <div>
+        <h1 class="logo" ALIGN=CENTER>Flora</h1>
+        <div class="w3-bar">
+    
+        <a href="index.html" class="w3-bar-item w3-button">Home</a>
+        <a href="shop.html" class="w3-bar-item w3-button">Shop</a>
+        <a href="build-your-bouquet.html" class="w3-bar-item w3-button">Build Your Bouquet</a>
+        <a href="quiz.html" class="w3-bar-item w3-button w3-hide-small">Find Your Flowers Quiz</a>
+        </div>
+        <img class="cart-icon" src="../images/cart.png"/>
+    </div>
+</header>
+
+<script>
+
+    $(document).ready(function() {
+        var products = [
+        {
+            "itemNum": 1,
+            "name": "Optimist",
+            "image": "../images/bouquets/optimist.png",
+            "meaning": "This bouquet is perfect for Mother's Day. The flowers within it show love and adoraction.",
+            "price": 34
+        },
+        {
+            "itemNum": 2,
+            "name": "The Firecracker",
+            "image": "../images/bouquets/the-firecracker.png",
+            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
+            "price": 34
+        },
+        {
+            "itemNum": 3,
+            "name": "Refresh",
+            "image": "../images/bouquets/refresh.png",
+            "meaning": "The flowers in this bouquet show love and appreciation.",
+            "price": 34
+        },
+        {
+            "itemNum": 4,
+            "name": "Pearl",
+            "image": "../images/bouquets/pearl.png",
+            "meaning": "This bouquet shows pure, familial love.",
+            "price": 34
+        },
+        {
+            "itemNum": 5,
+            "name": "Momenta",
+            "image": "../images/bouquets/momenta.png",
+            "meaning": "These flowers show love and devotion.",
+            "price": 34
+        },
+        {
+            "itemNum": 6,
+            "name": "Carnelian",
+            "image": "../images/bouquets/carnelian.png",
+            "meaning": "This bouquet sends the message of happiness.",
+            "price": 34
+        },
+        {
+            "itemNum": 7,
+            "name": "Cafe Azul",
+            "image": "../images/bouquets/cafe-azul.png",
+            "meaning": "These flowers show warmth and thinking of someone.",
+            "price": 34
+        },
+        {
+            "itemNum": 8,
+            "name": "The Prism",
+            "image": "../images/bouquets/the-prism.png",
+            "meaning": "The bold flowers within this bouquet show love, passion, and devotion.",
+            "price": 34
+        }
+    ];
+        
+        var flowers = [
+        {
+            "flowerId": 1,
+            "name": "Lavender Rose",
+            "image": ["../images/flowers/rose-lavender-1.png", "../images/flowers/rose-lavender-2.png", "../images/flowers/rose-lavender-3.png"],
+            "icon": "../images/flower-icons/rose-icon-lavender.png",
+            "meaning": "Lavender roses signify love and adoration.",
+            "tags": "love, adoration"
+        },
+        {
+            "flowerId": 2,
+            "name": "Orange Rose",
+            "image": ["../images/flowers/rose-orange-1.png", "../images/flowers/rose-orange-2.png", "../images/flowers/rose-orange-3.png"],
+            "icon": "../images/flower-icons/rose-icon-orange.png",
+            "meaning": "Orange roses signify adoration and send the message 'I'm proud of you'.",
+            "tags": "adoration, proud"
+        },
+        {
+            "flowerId": 3,
+            "name": "Red Rose",
+            "image": ["../images/flowers/rose-red-1.png", "../images/flowers/rose-red-2.png", "../images/flowers/rose-red-3.png"],
+            "icon": "../images/flower-icons/rose-icon-red.png",
+            "meaning": "Red roses symbolize passion and romance.",
+            "tags": "passion, romance"
+        },
+        {
+            "flowerId": 4,
+            "name": "Pink Carnation",
+            "image": ["../images/flowers/carnation-pink-1.png", "../images/flowers/carnation-pink-2.png", "../images/flowers/carnation-pink-3.png"],
+            "icon": "../images/flower-icons/carnation-icon-pink.png",
+            "meaning": "Pink carnations show gratitude, fondness, and mother-like love.",
+            "tags": "gratitude, fondness, mother"
+        },
+        {
+            "flowerId": 5,
+            "name": "Purple Carnation",
+            "image": ["../images/flowers/carnation-purple-1.png", "../images/flowers/carnation-purple-2.png", "../images/flowers/carnation-purple-3.png"],
+            "icon": "../images/flower-icons/carnation-icon-purple.png",
+            "meaning": "Purple carnations show condolence or sorrow.",
+            "tags": "condolence, sorry"
+        },
+        {
+            "flowerId": 6,
+            "name": "White Carnation",
+            "image": ["../images/flowers/carnation-white-1.png", "../images/flowers/carnation-white-2.png", "../images/flowers/carnation-white-3.png"],
+            "icon": "../images/flower-icons/carnation-icon-white.png",
+            "meaning": "White carnations show a pure form of love and are a symbol of good luck.",
+            "tags": "pure, luck"
+        },
+        {
+            "flowerId": 7,
+            "name": "Peach Tulip",
+            "image": ["../images/flowers/tulip-peach-1.png", "../images/flowers/tulip-peach-2.png", "../images/flowers/tulip-peach-3.png"],
+            "icon": "../images/flower-icons/tulip-icon-peach.png",
+            "meaning": "Peach tulips symbolize loyalty and gratitude.",
+            "tags": "loyalty, gratitude"
+        },
+        {
+            "flowerId": 8,
+            "name": "Purple Tulip",
+            "image": ["../images/flowers/tulip-purple-1.png", "../images/flowers/tulip-purple-2.png", "../images/flowers/tulip-purple-3.png"],
+            "icon": "../images/flower-icons/tulip-icon-purple.png",
+            "meaning": "Purple tulips represent admiration and can send a congratulatory message.",
+            "tags": "admiration, congratulations"
+        },
+        {
+            "flowerId": 9,
+            "name": "Yellow Tulip",
+            "image": ["../images/flowers/tulip-yellow-1.png", "../images/flowers/tulip-yellow-2.png", "../images/flowers/tulip-yellow-3.png"],
+            "icon": "../images/flower-icons/tulip-icon-yellow.png",
+            "meaning": "Yellow tulips show cheer and happiness.",
+            "tags": "cheer, happy"
+        }
+    ];
+        
+        var i = 1;
+        var j = 0;
+
+        /* Initialize quantity array to 0; assume 10 products for now */
+        var k = 0;
+        const bouquetQty = [];
+        while (k < 10) {
+            bouquetQty[k] = 0;
+            k++;
+        }
+
+        //How many default bouquets (from shop page) are in cart
+        defaultBouquetCtr = parseInt(sessionStorage.getItem("defaultBouquetCtr"));
+
+        //go through all default bouqets in cart
+        while(i<=defaultBouquetCtr) {
+            var img;
+            var name;
+            var message;
+            var price;
+
+            //itemNum or id of bouquet added to cart
+            itemNum = parseInt(sessionStorage.getItem("defaultBouquet"+i));
+
+            //if not added to cart yet, add bouquet item w quantity of 1
+            if (bouquetQty[itemNum] == 0){
+
+                sessionStorage.setItem("qtyOf"+itemNum, 1);
+
+                bouquetQty[itemNum] = 1;
+                $("#products").append("<tr id='row" + itemNum + "'></tr>");
+
+                //get info for cart table for correct bouquet
+                var defaultBouquetNumber = parseInt(sessionStorage.getItem("defaultBouquet"+i));
+                for (var j in products) {
+                    if (products[j].itemNum == defaultBouquetNumber) {
+                        img = products[j].image;
+                        name = products[j].name;
+                        price = products[j].price;
+                    }
+                }
+
+                //"+products[i].itemNum+");>-</button>"+
+
+                //add info to cart table
+                $("#row" + itemNum).append("<td class='center-text' style='width:25%; padding-bottom:15px;'><img class='resize-cart-img' style='border-radius:10px;' src="+img+"/><br>"+name+"<br><input type='checkbox'> Include meaning</td>");
+                $("#row" + itemNum).append("<td class='center-text' style='width:25%'>$"+price+"</td>");
+                $("#row" + itemNum).append("<td class='center-text qty-text' style='width:25%' id='row"+itemNum+"qty'>"+sessionStorage.getItem('qtyOf'+itemNum)+"</td>");                //$("#row" + itemNum).append("<td class='center-text qty-text' style='width:25%' id='row"+itemNum+"qty'><button onclick=decreaseDefaultQty("+products[i].itemNum+");>-</button>"+sessionStorage.getItem("qtyOf"+itemNum)+"</td>");
+
+                $("#row" + itemNum).append("<td class='center-text' style='width:25%' id='row"+itemNum+"price'>$"+price+"</td>");
+            } else { //if bouqet item is already in cart
+
+                qty = sessionStorage.getItem("qtyOf"+itemNum); 
+                qty++;
+                sessionStorage.setItem("qtyOf"+itemNum, qty);
+
+                /* might want to make item#qty a session variable for when users can add and remove items */
+
+                bouquetQty[itemNum]++;
+                console.log(bouquetQty);
+
+                // Change quantity & price when >1 of same item
+                $("#row" + itemNum + "qty").html(sessionStorage.getItem("qtyOf"+itemNum));   
+                $("#row" + itemNum + "price").html("$"+price * sessionStorage.getItem("qtyOf"+itemNum));  
+
+                console.log("in here");
+            }
+            i++;
+        }
+
+        // Go through all custom bouquets
+        var itemId;
+
+        customBouquetCtr = parseInt(sessionStorage.getItem("customBouquetInCartCtr"));
+        var l = 1;
+        while (l <= customBouquetCtr) {
+
+            total = 45;
+            
+            itemId = sessionStorage.getItem("customItem"+l);
+            console.log(itemId);
+
+            flower1 = parseInt(itemId.charAt(0));
+            flower2 = parseInt(itemId.charAt(1)); 
+            flower3 = parseInt(itemId.charAt(2));
+
+            
+            
+            /*console.log(flowers[flower1-1].image[0]);
+            console.log(flowers[flower2-1].image[1]);
+            console.log(flowers[flower3-1].image[2]);*/
+            
+            // If only one of this item
+            if(!$('#row'+itemId).length){
+                sessionStorage.setItem("qty"+itemId, 1);
+                $("#products").append("<tr style='padding-bottom:15px;' id='row" + itemId + "'></tr>");
+                console.log("itemId:" +itemId);
+
+                if (flower2 == 0) {
+                    flower1Img = flowers[flower1-1].image[0];
+                    $("#row" + itemId).append("<td class='center-text' style='width:25%; padding-bottom:15px;'><div class='byb-img-parent center resize-cart-custom'><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower1Img+"'/><img id='byb-vase' class='image1 resize-cart-custom' src='../images/flowers/vase.png'/><br>Custom Bouquet<br><input type='checkbox'> Include meaning</div></td>");
+
+                } else if (flower3 == 0) {
+                    flower1Img = flowers[flower1-1].image[0];
+                    flower2Img = flowers[flower2-1].image[1];
+                    $("#row" + itemId).append("<td class='center-text' style='width:25%; padding-bottom:15px;'><div class='byb-img-parent center resize-cart-custom'><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower1Img+"'/><img id='byb-flower-2' class='image2 resize-cart-custom' src='"+flower2Img+"'/><img id='byb-vase' class='image1 resize-cart-custom' src='../images/flowers/vase.png'/><br>Custom Bouquet<br><input type='checkbox'> Include meaning</div></td>");
+
+                } else {
+                    flower1Img = flowers[flower1-1].image[0];
+                    flower2Img = flowers[flower2-1].image[1];
+                    flower3Img = flowers[flower3-1].image[2];
+                    $("#row" + itemId).append("<td class='center-text' style='width:25%; padding-bottom:15px;'><div class='byb-img-parent center resize-cart-custom'><img id='byb-flower-3' class='image2 resize-cart-custom' src='"+flower3Img+"'/><img id='byb-flower-1' class='image2 resize-cart-custom' src='"+flower1Img+"'/><img id='byb-flower-2' class='image2 resize-cart-custom' src='"+flower2Img+"'/><img id='byb-vase' class='image1 resize-cart-custom' src='../images/flowers/vase.png'/><br>Custom Bouquet<br><input type='checkbox'> Include meaning</div></td>");
+                }
+
+
+                $("#row" + itemId).append("<td class='center-text' style='width:25%'>$45</td>");
+                $("#row" + itemId).append("<td id='row"+itemId+"qty' class='center-text' style='width:25%'>1</td>");
+                $("#row" + itemId).append("<td id='row"+itemId+"total' class='center-text' style='width:25%'>$"+total+"</td>");
+            } else { // If same item is already in the cart
+                qty = sessionStorage.getItem("qty"+itemId);
+                qty++;
+                sessionStorage.setItem("qty"+itemId, qty);
+
+                total = total*(parseInt(sessionStorage.getItem("qty"+itemId)));
+
+                // Change quantity & price when >1 of same item
+                $("#row" + itemId + "qty").html(sessionStorage.getItem("qty"+itemId));   
+                $("#row" + itemId + "total").html("$"+total);  
+            }
+
+            console.log("item"+itemId+"qty: " + sessionStorage.getItem("qty"+itemId));
+
+            
+        
+            l++;
+        }
+        });
+
+</script>
+
+<!-- Table -->
+<!--<div class="table-parent center center-table">
+    <div class="inner center-table"> -->
+    <div style="width: 100%;">
+        <div class="cart-table-parent" style="width: 70%; float: left; background: white;"> 
+            <table class="table table-center">
+                <tbody id="products">
+                    <tr class="center-text table-headings">
+                        <td>PRODUCT</td>
+                        <td>PRICE</td>
+                        <td>QTY</td>
+                        <td>TOTAL</td>
+                    </tr>
+                    <!--
+                    <tr id="BYBtestRow">
+                        <td class='center-text' style='width:25%'>
+                            <div class="byb-img-parent center resize-cart-custom">
+                                <img id="byb-flower-3" class="image2 resize-cart-custom"/>
+                                <img id="byb-flower-1" class="image2 resize-cart-custom" src="../images/flowers/rose-orange-1.png"/>
+                                <img id="byb-flower-2" class="image2 resize-cart-custom" src="../images/flowers/carnation-pink-2.png"/>
+                                <img id="byb-vase" class="image1 resize-cart-custom" src="../images/flowers/vase.png"/>
+                            </div>
+                        </td>
+                    </tr>
+                    -->
+                </tbody>
+            </table>
+        </div>
+        <div style="margin-left: 70%; background: #3B552E;"> 
+            <div style="height: 100%;">
+              right
+            </div>
+            <div style="margin-top: 100%;">
+                right
+              </div>
+        </div>
+    </div>
+    <!--</div>      
+</div> -->
+
+<!-- End Page Content -->
+</div>
+
+<!-- Footer -->
+<footer class="footer w3-container w3-padding-64 w3-light-grey w3-center w3-large"> 
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <p>Follow us on social media</p>
+</footer>
+
+</body>
+</html>

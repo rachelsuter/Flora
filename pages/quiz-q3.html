@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<title>Flora</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="../images/flower-icons/carnation-icon.png"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1 {font-family: "Raleway", Arial, sans-serif}
+h1 {letter-spacing: 6px}
+.w3-row-padding img {margin-bottom: 12px}
+</style>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../styles/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/quiz.css"/>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../scripts/app.js"></script>
+    <script type="text/javascript" src="../scripts/loadHeader.js"></script>
+    <script type="text/javascript" src="../scripts/setQ3.js"></script>
+    
+</head>
+
+<body>
+<!-- !PAGE CONTENT! -->
+<div class="w3-content" style="max-width:1500px">
+
+<!-- Header -->
+<header class="w3-panel w3-center w3-opacity">
+
+    <div>
+        <a href="index.html">
+            <h1 class="logo" ALIGN=CENTER>Flora</h1>
+        </a>
+        <div class="w3-bar nav">
+    
+            <a href="index.html" class="w3-bar-item w3-button">Home</a>
+            <a href="shop.html" class="w3-bar-item w3-button">Shop</a>
+            <a href="build-your-bouquet.html" class="w3-bar-item w3-button">Build Your Bouquet</a>
+            <a href="quiz.html" class="w3-bar-item w3-button w3-hide-small  w3-light-grey">Find Your Flowers Quiz</a>
+        </div>
+        <a class="cart-icon-container" href="cart.html">
+            <img class="cart-icon" src="../images/icons/cart-icon.png"/>
+        </a>
+    </div>
+</header>
+
+<div class="column-container">
+    <div class="col1">
+        <h1 class="side-title">
+            FIND YOUR FLOWERS
+        </h1>
+        <div class="progress">
+            <div class="question-num">
+                QUESTION 3 OF 3
+            </div>
+            <br>
+            <img class="pie" src="../images/pie3.png"/>
+        </div>
+    </div>
+    <div class="col2">
+        <h3 class="question">
+                Which words reflect the mood of your message?
+        </h3>
+        <div style="color:#3B552E">
+            (CHOOSE UP TO 3)
+        </div>
+       
+         <!-- Tags for mood options -->
+         <div class="tags-area-wrapper">
+                        
+            <div class="tag-wrapper">
+                <button class="tag-test" id="1" onclick="setColor('1')">RESPECT</button>
+                <button class="tag-test" id="2" onclick="setColor('2')">THANK YOU</button>
+                <button class="tag-test" id="3" onclick="setColor('3')">CONGRATS</button>
+                <button class="tag-test" id="4" onclick="setColor('4')">PROUD</button>
+                <button class="tag-test" id="5" onclick="setColor('5')">HAPPY</button>
+                <button class="tag-test" id="6" onclick="setColor('6')">SORRY</button>
+            </div>
+            <div class="tag-wrapper">
+                
+                <button class="tag-test" id="7" onclick="setColor('7')">ROMANTIC</button>
+                <button class="tag-test" id="8" onclick="setColor('8')">PURE</button>
+                <button class="tag-test" id="9" onclick="setColor('9')">PASSIONATE</button>
+                <button class="tag-test" id="10" onclick="setColor('10')">THOUGHTFUL</button>
+                <button class="tag-test" id="11" onclick="setColor('11')">ADORATION</button>
+            </div>
+        </div>
+
+        <button id="quiz-submit-btn" class="quiz-submit-btn" onclick="location.href='javascript:saveMood()'">SUBMIT</button>
+        </div>
+        
+
+        <!-- End of answer options -->
+    </div>
+</div>
+
+<!-- End Page Content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large"> 
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <p>Follow us on social media</p>
+</footer>
+
+</body>
+</html>

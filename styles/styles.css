@@ -1,0 +1,277 @@
+.center {
+    margin: auto;
+    width: 50%;
+    /*border: 3px solid green;*/
+}
+.resize {
+    width: 200px;
+    height: auto;
+}
+
+.byb-img-parent {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .image1 {
+    position: relative;
+    top: 0;
+    left: 0;
+    /*border: 1px red solid;*/
+  }
+  .image2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*border: 1px green solid;*/
+  }
+
+
+
+
+/* NAVIGATION */
+.logo {
+    float: left;
+    position: relative;
+    margin: 10px;
+}
+
+.cart-icon {
+    float: right;
+    position: relative;
+    width: 70px;
+    height: auto;
+    padding: 15px;
+    padding-right: 18px;
+    padding-top: 17px;
+    border-radius: 5px;
+    
+}
+
+.cart-icon-container {
+    cursor: pointer;
+    background: none;
+    border-radius: 50%;
+ 
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.cart-icon:hover {
+    background: #e7e7e7;
+}
+.cart-icon-active {
+    background: #e7e7e7;
+}
+
+.nav {
+    padding-right: 8%;
+    padding-left: 6%;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #F2F2F2;
+}
+
+/* SHOP */
+
+.table-parent {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.shop-table {
+    margin: auto;
+    padding-left: 5%;
+}
+
+.inner {
+    position: relative;
+    top: 0;
+    left: 0;
+    /*border: 1px red solid;*/
+}
+.shop-item {
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    width: 300px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.shop-item-image {
+    -webkit-filter: brightness(100%);
+}
+.shop-item-image:hover {
+    -webkit-filter: brightness(80%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.shop-item-color {
+    background-color: #3B552E;
+    
+}
+.shop-item-title {
+    font-weight: bold;
+    padding-left: 20px;
+    color: #666666;
+    padding-bottom: 40px;
+}
+
+.center-table {
+    margin-left: auto;
+    margin-right: auto;
+}
+.quick-add-btn-container {
+    padding-bottom: 0px;
+    padding-right: 0px;
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    margin-right: 20%;
+}
+.quick-add-btn {
+    display: none;
+    width: 80px;
+
+}  
+.quick-add-btn:hover {
+    width: 85px;
+}
+.shop-item:hover .quick-add-btn  {
+    display: inline-block;
+} 
+
+/* CART */
+.cart-table-parent {
+    position: relative;
+}
+.table {
+    position: relative;
+    
+}
+
+.resize-cart-img {
+    width: 175px;
+    height: auto;
+}
+
+.resize-cart-custom {
+    width: 150px;
+    height: auto;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.qty-text {
+    font-size: 18px;
+}
+
+.table-center {
+    margin: auto;
+    width: 90%;
+}
+
+.table-headings {
+    color: #7C8F72;
+    font-size: 12px;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    height: 100%;
+  }
+
+
+.flex-container{
+    width: 90%;
+    min-height: 100%;
+    margin: 0 auto;
+    display: -webkit-flex; /* Safari */     
+    display: flex; /* Standard syntax */
+}
+.flex-container .column{
+    padding: 10px;
+    background: #dbdfe5;
+    -webkit-flex: 1; /* Safari */
+    -ms-flex: 1; /* IE 10 */
+    flex: 1; /* Standard syntax */
+}
+.flex-container .column.bg-alt{
+    background: #b4bac0;
+}
+
+
+/* SEARCH */
+.center-search {
+    margin: auto;
+    width: 90%;
+}
+
+
+* {
+    box-sizing: border-box;
+  }
+  
+  .example {
+      margin-left: 20%;
+      margin-right: 20%;
+  }
+
+  /* Style the search field */
+  form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+  }
+  
+  /* Style the submit button */
+  form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #3B552E;
+    color: white;
+    font-size: 17px;
+    border: 1px solid #3B552E;
+    border-left: none; /* Prevent double borders */
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    cursor: pointer;
+  }
+  
+  form.example button:hover {
+    background: #526e44;
+  }
+  
+  /* Clear floats */
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
